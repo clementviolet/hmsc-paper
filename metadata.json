@@ -1,0 +1,19 @@
+{
+  "title": "HMSC Paper - Temporary title",
+  "upload_type": "preprint",
+  "access_right": "open",
+  "license": "CC-BY",
+  "lang": "en-US",
+  "creators": [
+    {
+      "affiliation": "IFREMER DYNECO-LEBCO",
+      "familyname": "Violet",
+      "givennames": "Clément",
+      "orcid": "0000-0001-6217-5891"
+    }
+  ],
+  "description": "This document is intended purely as a demo for the manuscript building system.",
+  "keywords": [""],
+  "filename": "manuscript-template",
+  "link-citations": true
+}
