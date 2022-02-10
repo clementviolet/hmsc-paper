@@ -16,6 +16,18 @@ linestretch: false
 bibliography: [./references.bib] # This field is overid when pandoc is use, but it allow to use citation completion when writting.
 ---
 
+<!-- 
+
+Liste des journaux possibles :
+
+1. Methods in Ecology and Evolution. IF: 7.78. Research Article: Words 7000~8000
+
+2. Ecology. IF: 5.499. Research Article or Statistical Reports. Words ~8000 (20 pages max)
+
+3. Journal of Ecology. IF: 6.26. Resear articles. Words 8000
+
+ -->
+
 # Materiel and methods
 ## HMSC
 
