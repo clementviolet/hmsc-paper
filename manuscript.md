@@ -52,6 +52,30 @@ We fitted four alternative candidate models of increasing complexity with the R-
 
 Goodness of fit and predictive power of all models were assessed using AUC (for abundance data, AUC was computed using abundance predictions truncated to occurrence). Additionally, the root mean squared errors (RMSE) was also computed for abundance based models. We compared the $B$ matrices of the different models two by two using Pearson correlation coefficient to search for common structures between two matrices to identify whether one or more of the models differs completely from the others in terms of the estimated coefficients.
 
+# Results
+
+[Model Fit]
+
+The MCMC convergence and the effective sample size of the different HMSC models were satisfactory (see supporting informations XXX).
+
+The presence-abscence models showed a very good fit to the data, the mean AUC being on average greater than 0.9 for explanatory power. The predictive capacities of the different models are significantly lower than their explanatory capacities. On average, the AUC of the differents models was about 0.65. There were no variabilities between the differents candidat models regarding the predictive power and explanatory power (Fig. XX)
+
+As for abundance based models, when looking at the AUC computed using counts truncated to occurence, the same patterns regarding the explanatory and predictive power occured. All models had a AUC greater than 0.9 for explanatory power and around 0.65 for predictive power (see Fig XXX in supporting informations). The RMSE indicated that all models had a good fit, their average RMSE ranged from 8.93 to 9.36 with a standard deviation between 38.6 to 43.4 (see table XXXX). The three models that included only polychaeta species showed poor predictive performances, their average RMSE were comprise between 54.1 to 95 and  all three exhibited high variability their standard deviation were ranging from 423 to 748. However, contrary to the three previous models, the model including all species of the communtity exhibited good predictive capabilities its RMSE was on average of 5.77 and the standard deviation of the RMSE was of 27.  
+
+[Relative increase in model fit/model predictions]
+
+We investigated whether the inclusion of alternative information on the target species, such as (1) phylogeny or (2) phylogeny and traits or (3) the inclusion of all species in the sampled community would have an impact on the explicative and predictives performances compared to a baseline model focusing only on polycheata without additional informations.
+
+The explanatory capacities of presence-absence models including phylogeny or phylogeny and traits had decreased compared to the baseline model (Fig. XXX). The AUC of the model with all species of the community slightly increased compared to the baseline model (+ 0.06%). However, regarding predictive power, there were no differences between the three model and the baseline model. For abundance based model, the were no differences between models with phylognie or model with phylogenie and traits and the baseline model for explenatory and predictive power. Yet, as for the occurence based model, the model with all the community showed an improvement of the explenatory power, compared to the based model, the mdeian RMSE decreased slightly (-0.005%). As for predictive power, the model with all communtiy showed a large improvement of the median RMSE who dropped of 18.4%.
+
+[Variance partitionning]
+
+We measured the correlation between all environmental coefficients of the four candidats models. The model with all the community is the model which its environmental estimated coefficient are the less correlated to the other models (Fig XXXX). The variance explanaied by all models is mostly due to environmental variables, even though the model with all the community seemed to have a slightly larger share of variance explained by random effects than for the other models (Fig.XXX).
+
+[Classification of the inferred environmental <->Species relationships]
+
+
+
 
 <!-- # The model
 
