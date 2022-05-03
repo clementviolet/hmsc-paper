@@ -28,8 +28,19 @@ Liste des journaux possibles :
 
  -->
 
+# Introduction
+
+- **Community ecology** aims at explaining / predicting species diversity patterns and their variability through space and time; community assembly and structure, time-space variability. Critical need to understand and predict responses to global changes.
+
+- **Means to address critical community ecology questions**:Experiment, observe or model. Experiments and observations are limited in terms of capturing whole ecosystems (space and time scales, low frequency, limited number of species, costs). Models can either be process-based or data-driven. Process-based models are data-hungry (hard to characterise and more so quantify all processes within an ecosystem) so high expectations in promising data-driven approaches over past decades.
+
+- **Historical perspective on data-driven approaches**, with a dedicated focus on SDM, to illustrate how numerical approaches have emerged to account for various data sources. (i) From single-species: logistic regression to random forest; (ii) stacked SDM; (ii) JSDM developped to explicitly account for species co-occurrence in addition to environmental covariates and to simultaneously capture the influence of “so many variables in ecology”… Tradeoffs between model complexity, computational cost, interpretability.
+
+-**Problem**: Emergence of large datasets about species occurrence or abundance, species functional traits (e.g. longevity, trophic diet), phylogenetic distances (OBIS, …, FishBase, Worms, i-naturalist) is promising for data-driven approaches (and JSDM in particular). All ecological datasets are biased so any additional sources come with noise / uncertainty. JSDM that allows for simultaneous use of diverse data sources (occurrence/ abundance, traits, phylogenetic distances, random effects) are promising but come with challenges and questions. Gain/cost of using additional variables / covariates: explanatory and predictive power of JSDM can theoretically increase thanks to: (1) additional species-specific information like phylogeny or trait data, or (2) inclusion of abundance or occurrence of non-target species. Because of (1) noises in ecological datasets, and (2) tradeoffs between model complexity, performance and interpretability, there is a need to refine strategic use of JSDM (i.e. how much gain/loss to expect from including additional covariates).
+
+-**Here, we used** HMSC applied to a regional monitoring species-rich dataset of coastal benthic assemblages to systematically test out for the effects of including species-specific information and/or abundance or occurrence of non-target species on model explanatory and predictive powers, and their interpretability. We choose to compare the different possible architectures of models to predict an assembly of interest: the polychaetes. Polychaetes are a group of species of ecological interest because of the wide variety of ecological niches and ecosystem functions they fulfill.
+
 # Materiel and methods
-## HMSC
 
 We used HMSC framework applied to some of the data acquired by the REBENT monitoring programm. In the following subsections, we describe (1) the HMSC framework, (2) the data used in this study, (3) the slitting of this dataset into training and testing datasets, (4) 
 In the following subsections, we describe (1) JSDM, (2) data, (3) alternative models, (4) performance and diagnostic metrics.
