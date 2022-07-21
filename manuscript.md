@@ -47,7 +47,7 @@ In the following subsections, we describe (1) JSDM, (2) data, (3) alternative mo
 
 ## Hierarchical Modelling of Species (HMSC)
 
-Since the rise of Joint Species Distribution Models using latent variables in the mid-2010s [@Warton_2015], several implementations have been proposed : *HMSC* [@Ovaskainen_2017a], *Boral* [@Hui_2016], *gllvm* [@Niku_2019]. Here, we choose *HMSC* because this implementation performs well on occurrence data against other classical *SDM* and *JSDM* [@Norberg_2020]. Moreover, *HMSC* allows for the use of different ecologically meaningful covariates like species-specific traits and/or phylogenetic correlations [@Ovaskainen_2017a ; @Tikhonov_2019b].
+Since the rise of Joint Species Distribution Models using latent variables in the mid-2010s [@Warton_2015], several implementations have been proposed : *HMSC* [@Ovaskainen_2017a], *Boral* [@Hui_2016], *gllvm* [@Niku_2019]. Here, we choose *HMSC* because this implementation performs well on occurrence data against other classical *SDM* and *JSDM* [@Norberg_2019]. Moreover, *HMSC* allows for the use of different ecologically meaningful covariates like species-specific traits and/or phylogenetic correlations [@Ovaskainen_2017a ; @Tikhonov_2019b].
 
 "*HMSC* is a mutilvariate hierarchical generalized linear  mixed model adjusted with Bayesian inference rooted in assembly theory [@Ovaskainen_2020]. Therefore, a *HMSC* model has two parts: one taking into account fixed effects and the other taking into account random effects @fig:workflow . The fix part models the realised niche of each species ($B$ matrix), where each dimension of the niche is a covariate included in the model [@Ovaskainen_2020]. Without any traits, the *HMSC* framework assume that all species share the same expected niche value for each covariate, however, the width of each niche is assumed to be species-independent. If the modeler includes some trait data, the information contained in it enables *HMSC* to estimate a specie-specific expected niche value [@Ovaskainen_2017a ; @Ovaskainen_2020]. In addition, traits are phylogenetically inherited, therefore, closely related phylogenetically species tend to share more traits. Thus, using phylogenetic information, *HMSC* can capture residual traits information not include in the trait data, allowing a better estimation of the ecological niches of the species included in the model. [@Ovaskainen_2020].
 
@@ -75,7 +75,7 @@ The taxonomic classification of these 99 Polychaeta species was retrieved on Wor
 
 ### Environmental dataset
 
-Based on the work of @Boye_2018_test, we selected 7 environmental variables which allowed to characterise the realised niche of each species of the sampled communities. These variables describe the fetch, a proxy for the degree of hydrodynamic exposure of the sites; hydrological properties as sea water temperature and salinity and current velocity; and sedimentological properties as mud and organic matter content, and granulometric properties. To capture the non-linear nature of the ecological niches, we then calculated orthogonal polynomials of degree 1 and degree 2 for each of these variables. These polynomials transformed variables have been used as explanatory covariates in the models presented below.
+Based on the work of @Boye_2019b, we selected 7 environmental variables which allowed to characterise the realised niche of each species of the sampled communities. These variables describe the fetch, a proxy for the degree of hydrodynamic exposure of the sites; hydrological properties as sea water temperature and salinity and current velocity; and sedimentological properties as mud and organic matter content, and granulometric properties. To capture the non-linear nature of the ecological niches, we then calculated orthogonal polynomials of degree 1 and degree 2 for each of these variables. These polynomials transformed variables have been used as explanatory covariates in the models presented below.
 
 ## Comparison of alternative model structures
 
@@ -160,6 +160,7 @@ Since all the models included the same random effects, we qualitatively compared
 
 ![Distribution of response curves of polychaetes to the environment. All models have been fitted with abundance data. Each response is characterized by a shape and an intensity. See Rigal et al 2020](figures/response_shape_pa.png){#fig:response_shape_pa}
 
+# References
 
 <!-- # The model
 
