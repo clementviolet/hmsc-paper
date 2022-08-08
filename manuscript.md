@@ -99,18 +99,22 @@ Goodness of fit and predictive power of all models were assessed using AUC for o
 
 ## Model Fit & Predictive power
 
-We evaluate the models containing phylogeny, phylogeny and traits, as well as the model with the whole community against the benchmark model including only polychaetes and the environmental covariates +@fig:explanatory_predictions_power . All models fitted with occurrence data had an excellent fit to the data, their mean AUC was on average greater than 0.9. The predictive power of these models were in contrast significantly lower: the mean AUC for these models was about 0.65. For abundance based models, all models showed a similar means RMSE ranging from 8.92 to 9.34. As for the predictive power, there was a large disparity between the RMSE of the different models: the model with all the community had an average RMSE of 5.83, the three other had average RMSE ranging from 54.2 to 95.6. 
+Models fitted with occurrence data presented an excellent explanatory power (i.e, in-sample predictions), with the AUC being on average greater than 0.9 +@fig:explanatory_predictions_power. In contrast, the predictive power of the models (i.e, out-of-sample predictions) were significantly lower with the AUC being about 0.65 on average +@fig:explanatory_predictions_power. For abundance-based models, the RMSE computed on the data used for model fitting (explanatory power) ranged from 8.92 to 9.34 on average. Regarding the predictive power, there was a large disparity between the RMSE of the different models: the whole community model presented the lowest RMSE (5.83), while the three other models presented much larger values with the RMSE ranging from 54.2 to 95.6, on average.
 
-Comparing our baseline model with only environmental data without including additional information such as phylogenetic correlation or traits, we observe that explanatory abilities improve for models added with occurrence or abundance data only if all species in the community are considered (Figure @fig:explanatory_predictions_power). [Comment puis-je dire que les tests de Kruskall-Wallis & post-hoc de Dunn sont significatifs ?]. The increase in explanatory power remains modest : the AUC increases in average by 0.0034 ± 0.0114 (mean ± sd) for the models fitted with occurrence data and the RMSE decreases by 0.035 ± 0.796 (mean ± sd) for the models fitted with abundance data. As for the predictive power, it only improved for the model with all the community fitted with abundance data, where its RMSE decrease of 0.27 ± 0.44. The model with the whole community is the one that takes best advantage of the additional information, we wanted to explore the correlations between the relative increase in explanatory and predictive power, on the one hand, and, on the other hand, of the average occurrence and abundance of polychaetes. The model is better able to explain the abundance of the most common species: the decrease in RMSE is correlated with the mean abundance and mean occurrence of polychaete species (Kendall's τ = -0.29, p-value < 0.0001 and Kendall's τ = -0.28, p-value > 0.001 respectively).
-We explored the structure of the inferred community and the extrapolate one by decomposing the total beta diversity into species turnover and replacement accordingly to the Baselga framework. We found that on the training dataset, the median Sorensen dissimilarity is about 0.36 for all models fitted with occurrence or abundance data. 
+For the sake of interpretability, all models were compared against the benchmark models +@fig:relative_change_explanation_prediction.  Comparing our baseline model with only environmental data without including additional information such as phylogenetic correlation or traits, we observe via the Dunn multiple comparison test  that explanatory abilities improve for models with occurrence or abundance data only if all species in the community are considered +@fig:explanatory_predictions_power. The increase in explanatory power remains modest : the AUC increases in average by 0.0034 ± 0.0114 (mean ± sd) for the models fitted with occurrence data and the RMSE decreases by 0.035 ± 0.796 (mean ± sd) for the models fitted with abundance data. As for the predictive power, it only improved for the model with all the community fitted with abundance data, where its RMSE decrease of 0.27 ± 0.44 (mean ± sd). Compared to the baseline model, the model with the whole community fitted with abundance data improves the explanatory power of the most common and abundant species, RMSE is negatively correlated with mean species occurrence (Kendall's τ = -0.28, p-value < 1e-5) and with mean species abundance (Kendall's τ = -0.29, p-value < 1e-4).
+
+We found that on the training dataset, the median Sorensen dissimilarity is about 0.36 for all models fitted with occurrence or abundance data. 
 
 ## Variance partionning
+
 The amount of variance explained by each model can be further decomposed between the different environmentalist covariates and levels of random effects. For all models, the environmental variables account for most explained variance (Fig @fig:var_part in supplementary material XXXX). However, when looking at the relative change in the share of variance explained by the models, we find that a larger part of variance is explained by random effects for the model including the whole community than for the other models (Fig @fig:var_part). For the abundance base models, the median of the relative change in variance explained by the random effects is 0.086 for the model with inclusion of phylogeny information, 0.199 for the model with both phylogenic and traits information and 0.354 for the model including whole community. The same increase in variance explained by random effects for the whole community model is observed when this model architecture is fitted with occurrence data. With the test data set, we obtained a median Sorensen dissimilarity of about 0.65 for the models fitted with abundance data and about 0.72 for the models fitted with occurrence data.
 
 ## Species niche estimated
 
-The models tested are based on the estimation of the quadratic of the realized niche of each species according to each environmental variable and possible complementary information provided by the phylogenetic signal or the traits (Fig @fig:response_shape_ab). For the models fitted with abundance data, almost no realized niches have a convex or concave shape. On the contrary, for the models including only environmental covariates, as well as phylogeny and/or traits, more than 60% of the estimated realized niches are flat. This rate of flat realized niches rises to more than 80% of the model including the whole community. Besides the flat niche forms, the other estimated niche forms are divided between the constant decline and the accelerated decline. For the models that do not include the whole community, the accelerated decline form represents more than 10% of the niches estimated by the models and more than 15% for the constant decline form. The model including the whole community has much less estimated realized niches having to form the accelerated decline or constant decline by counting respectively 4.62% and 9.24% of the total forms of estimated realized niches.  
-We further investigated the link between the first fuzzy-PCA axis of the trait matrix and our environmental predictors (Fig @fig:traits_effect in supplementary materials). Both abundance and occurrence based models including traits inferred some meaningful shape traits/environment relationship: the mobile predatory polychaetes were more negatively affected by fetch than sessile suspensive ones, the concentration in organic matter increases the chance of encountering suspensive polychaeta but the increase in current strength decreases this probability.
+For the models fitted with abundance data, almost none of the response curves have a convex or a concave shape.  For the benchmark, phylogenetic and trait models, more than 60% of the estimated curves are flat. This rate reaches more than 80% for the whole community model. Besides flat responses, the other curves were divided between constant decline and accelerated decline. For the models that do not include the whole community, 10% of curves were classified in the accelerated decline category whereas 15% were classified  in the constant decline category. For the whole community model these percentages dropped to 4.62% and 9.24%, respectively.
+
+Considering the trait model, we further investigated the link between the first fuzzy-PCA axis obtained from the trait matrix and the seven environmental predictors to determine whether some traits were favored (or hindered) under some environmental conditions (@fig:traits_effect in supplementary materials). Both abundance and occurrence-based model highlighted interesting trait-environment relationships. For instance, we found that mobile predatory species were more negatively affected by fetch than sessile suspensivore. Similarly, the concentration in organic matter increases the chance of encountering suspensivore but the increase in current strength decreases this probability.
+
 
 ## Residual correlation
 Since all the models included the same random effects, we qualitatively compared the residual correlations estimated by the basic model with the one including the whole community, the latter being better performing than the other models tested and the variance explained by this model is based more on the random effects (Fig @fig:residual_corr_abd and Fig @fig:residual_corr_pa supporting information). For all the random effects included in the models, the residual correlations estimated by the community-wide model and the baseline model are not significantly different. The proportion of negative residual correlations is higher for the community-wide model compared to the baseline model. However the correlations estimated by the baseline model are stronger overall than for the community-wide model.
@@ -123,13 +127,13 @@ Since all the models included the same random effects, we qualitatively compared
 
 ![Workflow of the study](figures/workflow.png){#fig:workflow}
 
-![Comparison of the explanatory and predictive capacities of different model architectures. The top panels evaluate the explanatory (left) and predictive (right) capabilities for models fitted with occurrence data. The bottom panels evaluate the explanatory (left) and predictive (right) capabilities for models fitted with abundance data.](figures/explanatory-predictive-models.png){#fig:explanatory_predictions_power}
+![Comparison of the explanatory (left column) and predictive (right column) capacities of different model architectures fitted with occurrence (top line) or abundance (bottom line) data. [Mettre la légende en bas]](figures/explanatory-predictive-models.png){#fig:explanatory_predictions_power}
 
 <!-- ![Relative changes in variance partitioning between models](figures/varpart10.png){#fig:relative_change_varpart} -->
 
-![Relative change in explanatory and predictive power of different model architectures with respect to the benchmark. The top panels show the relative evolution of explanatory (left) and predictive (right) capabilities for models fitted with occurrence data. The bottom panels show the relative evolution the explanatory (left) and predictive (right) capabilities for models fitted with abundance data](figures/relative-change-explanation-prediction-7.png){#fig:relative_change_explanation_prediction}
+![Relative change in explanatory (left column) and predictive (right column) power of different model architectures with respect to the benchmark fitted with occurrence (top line) or abundance (bottom line) data.](figures/relative-change-explanation-prediction-7.png){#fig:relative_change_explanation_prediction}
 
-![Distribution in response curves of polychaetes to the environment. All models have been fitted with abundance data. Each response is characterized by a shape and an intensity. See Rigal et al 2020](figures/response_shape_ab.png){#fig:response_shape_ab}
+![Proportion of response curves according to the nomenclature defined by @Rigal_2020 for different model architectures. All models have been fitted with abundance data. Each response is characterized by a shape and an intensity.](figures/response_shape_ab.png){#fig:response_shape_ab}
 
 ## Supplementary
 
@@ -159,50 +163,3 @@ Since all the models included the same random effects, we qualitatively compared
 
 # References
 
-<!-- # The model
-
-This is a citation: @Martinez2002 -- we can also have citations in brackets
-[@Martinez2002].
-
-## Lists
-
-1. one fish
-2. two fish
-3. red fish
-4. blue fish
-
-# Methods
-
-There is an equation, which we can cite with {@eq:eq1}.
-
-$$J'(p) = \frac{1}{\text{log}(S)}\times\left(-\sum p \text{log}(p)\right)$$ {#eq:eq1}
-
-# Tables
-
-We can do tables:
-
-| Column 1 | Column 2 |      Column 3    |
-| -------- | :-------:| ---------------: |
-| c1       |    c2    |       $\alpha$   |
-
-Table: Demonstration of a simple table. {#tbl:1}
-
-The first column is neat, the second centered and the third right-aligned. We can also cite table with {@tbl:1}
-
-# Figures
-
-![This is the legend of the figure](figures/biomes.png){#fig:biomes}
-
-We can refer to @fig:biomes.
-
-# Code?
-
-Yes
-
-~~~ julia
-# for i in eachindex(x)
-#  x[i] = zero(eltype(x)) # Don't do that
-# end
-~~~
-
-# References -->
