@@ -1,4 +1,6 @@
 %!TEX TS-program = lualatex
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+
 \documentclass[$if(fontsize)$$fontsize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
 %% Package geometry
@@ -16,16 +18,19 @@ $endfor$
 
 %% Package fontspec
 \usepackage{fontspec}
-\setmainfont{STIX2Text-Regular}[
-  Path           = ./fonts/,
+\setmainfont{STIXTwoText-Regular}[
+  Path           = .assets/fonts/,
   Extension      = .otf,
-  BoldFont       = STIX2Text-Bold,
-  ItalicFont     = STIX2Text-Italic,
-  BoldItalicFont = STIX2Text-BoldItalic]
+  BoldFont       = STIXTwoText-Bold,
+  ItalicFont     = STIXTwoText-Italic,
+  BoldItalicFont = STIXTwoText-BoldItalic]
 
 
 \usepackage{unicode-math}
-\setmathfont{STIX Two Math}
+\setmathfont{STIXTwoMath-Regular}[
+  Path           = .assets/fonts/,
+  Extension      = .otf
+]
 
 \usepackage{parskip}
 \setlength{\parindent}{0pt} % Remove indentation
@@ -86,12 +91,16 @@ $endif$
 
 % Nowadays LaTeX can handle all of this with another half million macros:
 
+\usepackage{xcolor}
+
 \usepackage[breaklinks=true]{hyperref}
 \hypersetup{colorlinks,%
-citecolor=black,%
-filecolor=black,%
-linkcolor=black,%
-urlcolor=black}
+colorlinks=true,
+linkcolor=Maroon,
+filecolor=Maroon,
+citecolor=Blue,
+urlcolor=blue
+}
 \usepackage{url}
 
 %% Graphics
