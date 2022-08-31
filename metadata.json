@@ -15,5 +15,6 @@
   "description": "This document is intended purely as a demo for the manuscript building system.",
   "keywords": [""],
   "filename": "manuscript-template",
-  "link-citations": true
+  "link-citations": true,
+  "fignos-plus-name": ["Figure", "Figures"]
 }
