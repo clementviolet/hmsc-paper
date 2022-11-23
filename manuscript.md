@@ -28,6 +28,18 @@ Liste des journaux possibles :
 
  -->
 
+# Abstract
+
+1. Explaining and predicting the spatio-temporal variability of communities is at the forefront of modern ecology. Joint Species Distribution Models (jSDM) are powerful and versatile tools able to include phylogeny, traits and take into account residuals tool co-occurrences pattern between species to describe the processes shaping communities and their evolution in a changing world. However, the inclusion of diverse information sources raises questions about their relative influence on the interpretability and performance of jSDM.
+
+2. Here we propose to investigate the effect of including additional species-specific information like phylogeny and/or traits data or the including accompanying species (i.e sampled at the same time than our target species) by measuring changes of a jSDM in terms of interpretability, explanatory and predictive power, and community structure of an assemblage of 99 polychaete species.
+
+3. Our results show that the predictive power of jSDM is improved with respect to the targeted assemblage when the model takes into account the accompanying species. Moreover, the addition of accompanying species allows us to gain clarity on the species-environment relationships. However, the addition of additional information on the species-specific community, such as traits, allows for a better understanding of the response of the species of interest to the environmental gradient, while at the same time allowing for a better understanding of the model.
+
+4. This work provides new insights into the most appropriate strategies for jSDM fitting regarding the objective of the researcher. If the main goal is the inference of distribution pattern of a given community adding phylogeny or traits is an appropriate strategy, while including companion species is a better strategy if the aim is to predict the status of a community in a different spatio-temporal scenario.
+
+Keywords : Community assembly, Explanatory power, Joint Species Distribution Model, jSDM, Model performances, Predictive power, Species Distribution Model 
+
 # Introduction
 
 Community ecology aims at explaining and predicting spatio-temporal variability in species diversity [@Whittaker_2001] and coexistence [@Chesson_2000]. Understanding the processes that determine species distribution around the planet is a prerequisite to characterise and predict community structure and associated ecological dynamics, which is critical to mitigate the effects of global change on biodiversity and prevent the sixth mass extinction [@ipbes_2019]. Currently, the major challenges faced by ecologists include describing, explaining, and predicting changes in communities  [@Tredennick_2021] in order to inform  effective management or restoration measures in a rapidly changing world [@Brudvig_2022; @Dietze_2018; @Houlahan_2017]. Joint Species Distribution Models (jSDM) are particularly well-suited tools to address these challenges, whether to characterise the processes that shape  observed communities [@Ovaskainen_2017a], or to predict how communities will evolve in the future [@Norberg_2019].
