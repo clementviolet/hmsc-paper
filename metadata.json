@@ -1,20 +1,106 @@
 {
-  "title": "Essential ingredients in Joint Species Distribution Models: how to optimize inference and prediction in species rich marine communities?",
-  "upload_type": "preprint",
-  "access_right": "open",
-  "license": "CC-BY",
-  "lang": "en-US",
-  "creators": [
-    {
-      "affiliation": "IFREMER DYNECO-LEBCO",
-      "familyname": "Violet",
-      "givennames": "Clément",
-      "orcid": "0000-0001-6217-5891"
-    }
-  ],
-  "description": "This document is intended purely as a demo for the manuscript building system.",
-  "keywords": [""],
-  "filename": "manuscript-template",
-  "link-citations": true,
-  "fignos-plus-name": ["Figure", "Figures"]
+    "title": "Essential ingredients in Joint Species Distribution Models: how to optimise inference and prediction in species rich communities?",
+    "shorttitle": "Essential ingredients in Joint Species Distribution Models",
+    "fontsize": "9pt",
+    "classoption": [
+        "biorxiv",
+        "doublespacing",
+        "lineno",
+        "endfloat"
+    ],
+    "polyglossia-lang": {
+        "name": "en-UK",
+        "options": ""
+    },
+    "appendix": true,
+    "author": [
+        "Clément Violet",
+        "Aurélien Boyé",
+        "Mathieu Chevalier",
+        "Olivier Gauthier",
+        "Jacques Grall",
+        "Martin P. Marzloff"
+    ],
+    "authorMeta": [
+        {
+            "author": "Clément Violet",
+            "orcid": "0000-0001-6217-5891",
+            "leadAuthor": true,
+            "correspondantAuthor": true,
+            "affiliationId": "1"
+        },
+        {
+            "author": "Aurélien Boyé",
+            "orcid": "0000-0002-5692-7660",
+            "leadAuthor": false,
+            "correspondantAuthor": false,
+            "affiliationId": "1"
+        },
+        {
+            "author": "Mathieu Chevalier",
+            "orcid": "0000-0002-1170-5343",
+            "leadAuthor": false,
+            "correspondantAuthor": false,
+            "affiliationId": "1"
+        },
+        {
+            "author": "Olivier Gauthier",
+            "orcid": "0000-0002-4158-7560",
+            "leadAuthor": false,
+            "correspondantAuthor": false,
+            "affiliationId": "2"
+        },
+        {
+            "author": "Jacques Grall",
+            "orcid": "0000-0002-3107-6740",
+            "leadAuthor": false,
+            "correspondantAuthor": false,
+            "affiliationId": "3"
+        },
+        {
+            "author": "Martin P. Marzloff",
+            "orcid": "0000-0002-8152-4273",
+            "leadAuthor": false,
+            "correspondantAuthor": false,
+            "affiliationId": "1"
+        }
+    ],
+    "metadata": {
+        "leadAuthor": "Violet",
+        "correspondanceEmail": "clement.violet@ifremer.fr",
+        "adress": "IFREMER, Centre de Bretagne, DYNECO LEBCO, Plouzané 29280, France.",
+        "dataAvailability": "",
+        "funding": "",
+        "competingInterest": "The authors declare no competing interests."
+    },
+    "affiliation": [
+        {
+            "id": "1",
+            "name": "IFREMER, Centre de Bretagne, DYNECO LEBCO, Plouzané, France"
+        },
+        {
+            "id": "2",
+            "name": "Laboratoire des Sciences de l’Environnement Marin (LEMAR) UMR 6539 CNRS UBO IRD IFREMER, Institut Universitaire Européen de la Mer, Université de Bretagne Occidentale, Plouzané, France"
+        },
+        {
+            "id": "3",
+            "name": "Observatoire des Sciences de l'Univers, UMS 3113, Institut Universitaire Européen de la Mer, Plouzané, France"
+        }
+    ],
+    "description": "",
+    "keywords": [
+        "Community assembly",
+        "Explanatory power",
+        "Joint Species Distribution Model",
+        "jSDM",
+        "Model Performances",
+        "Predictive power",
+        "Species Distribution Model"
+    ],
+    "link-citations": true,
+    "link-bibliography": true,
+    "fignos-plus-name": [
+        "Figure",
+        "Figures"
+    ]
 }

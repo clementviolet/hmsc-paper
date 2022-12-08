@@ -1,21 +1,27 @@
-## How to use the manuscript template?
+<p align="center">
+  <b>A template for easily creating pretty, nicely formatted preprints in LaTeX from a Markdown document.</b>
+</p>
 
-- Click on the "Use this template" button
-- Add a `ACCESS_TOKEN` secrets to your repo.
-- Go to `http://you.github.io/repo-name/` to view the html version, PDF, LaTeX source, and Word document
-- Edit this README
-- Edit the `metadata.json` file
-- Edit the `manuscript.md` file
+# Features
 
-## Downloads
+With simple options you can enable/disable:
+- `bioRxiv`, `medRxiv`, `arXiv` and `chemRxiv` logos.
+- `blue` or `red` colour schemes
+- Figures at the end
+- Line numbers
+- Change line spacing
 
-[master_pdf]: https://clementviolet.github.io/manuscript-template/manuscript-template.pdf
-[master_tex]: https://clementviolet.github.io/manuscript-template/manuscript-template.tex
-[master_doc]: https://clementviolet.github.io/manuscript-template/manuscript-template.docx
-[master_html]: https://clementviolet.github.io/manuscript-template/index.html
+See more in the [wiki](https://github.com/roaldarbol/LaPreprint/wiki).
 
-**Please note** that the preferred version is the HTML, on which you can make comments using [hypothes.is](https://hypothes.is/). Otherwise, you can create a branch or event make some comment in the file of your choice.
+# Quick start
 
-|                 |                                |            HTML            |             TeX            |             PDF            |        Word document        |
-|-----------------|--------------------------------|:--------------------------:|:--------------------------:|:--------------------------:|:---------------------------:|
-| `master` (main) | ![Create the document](https://github.com/clementviolet/manuscript-template/workflows/Create%20the%20document/badge.svg) | [:blue_book:][master_html] | [:notebook:][master_tex] | [:green_book:][master_pdf] | [:orange_book:][master_doc] |
+1. Click `Use this template`
+2. Open the document in your preferred text editor
+3. Edit `metadata.json` to have the correct information
+4. Start writing! The sections are found in the `chapter` and `supplementary` folders
+
+If you want different sections you can easily rename them.
+
+# Acknowledgements
+
+Mdpreprint is based on LaPreprint which is inspired by the style of eLife and PLoS, and is based on the eLife template. Additionally, the fancy footer is modified from the [the Henriques Lab template](https://www.overleaf.com/latex/templates/henriqueslab-biorxiv-template/nyprsybwffws). Without all their work, this template wouldn't exist!
