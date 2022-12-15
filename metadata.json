@@ -1,5 +1,5 @@
 {
-    "title": "Essential ingredients in Joint Species Distribution Models: how to optimise inference and prediction in species rich communities?",
+    "title": "Essential ingredients in Joint Species Distribution Models: influence on interpretability, explanatory and predictive power",
     "shorttitle": "Essential ingredients in Joint Species Distribution Models",
     "fontsize": "9pt",
     "classoption": [
@@ -70,7 +70,7 @@
         "correspondanceEmail": "clement.violet@ifremer.fr",
         "adress": "IFREMER, Centre de Bretagne, DYNECO LEBCO, Plouzané 29280, France.",
         "dataAvailability": "",
-        "funding": "",
+        "funding": "This work benefits from funding from IFREMER. MPM is the recipient of the early career ANR Grant #SDFSDFDSF",
         "competingInterest": "The authors declare no competing interests."
     },
     "affiliation": [
@@ -91,6 +91,7 @@
     "keywords": [
         "Community assembly",
         "Explanatory power",
+        "Interpretability",
         "Joint Species Distribution Model",
         "jSDM",
         "Model Performances",
