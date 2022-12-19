@@ -11,7 +11,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Declare document class
-\documentclass[9pt,biorxiv,doublespacing,lineno,endfloat]{lapreprint}
+\documentclass[9pt,biorxiv,doublespacing,lineno]{lapreprint}
 % Choose between "biorxiv", "medrxiv", "arxiv" and "chemrxiv". Otherwise defaults "Preprint".
 % Choose between "blue" and "red" colour scheme. Defaults to "blue".
 % Use the "onehalfspacing" option for 1.5 line spacing.
@@ -34,7 +34,6 @@
 \usepackage{tabularx}   % For making Knitr tables compatible
 \usepackage{longtable}  % For multi-page tables
 \usepackage{subcaption}
-\usepackage{cleveref} % For fig, table and equation numbering
 \usepackage{multirow}
 \usepackage{snotez}     % For sidenote environments. enotez for endnotes
 \usepackage{csquotes}   % For language-based quote rules (helps BiBLaTeX)
@@ -51,6 +50,10 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+
+%% pandoc-fignos: required package
+\usepackage[capitalise]{cleveref}
 
 %% pandoc-tablenos: required package
 \usepackage{caption}
@@ -126,8 +129,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Paper title
-\title{Essential ingredients in Joint Species Distribution Models: how
-to optimise inference and prediction in species rich communities?}
+\title{Essential ingredients in Joint Species Distribution Models:
+influence on interpretability, explanatory and predictive power}
 
 % Authors - you can use \orcidlink{} and \authfn{} - see contribution note
 
@@ -152,11 +155,12 @@ Universitaire Européen de la Mer, Plouzané, France}
 \metadata[]{\Letter\hspace{.5ex} For correspondence}{\href{mailto:}{clement.violet@ifremer.fr}}
 \metadata[]{Present address}{IFREMER, Centre de Bretagne, DYNECO LEBCO,
 Plouzané 29280, France.}
-\metadata[]{Keywords}{Community assembly, Explanatory power, Joint
-Species Distribution Model, jSDM, Model Performances, Predictive
-power, Species Distribution Model}
+\metadata[]{Keywords}{Community assembly, Explanatory
+power, Interpretability, Joint Species Distribution Model, jSDM, Model
+Performances, Predictive power, Species Distribution Model}
 \metadata[]{Competing interests}{The authors declare no competing
 interests.}
+\metadata[]{Funding}{This work benefits from funding from IFREMER.}
 % \metadata[\authfn{1}\authfn{2}\authfn{3}]{}{Here's a few symbols to denote contribution specifics, e.g. authors who contributed equally to the work.}
 
 % Surname of the lead author(s) for the running footer
@@ -175,48 +179,49 @@ interests.}
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Joint Species Distribution Models (jSDM) can be powerful and versatile
-  tools to explain and predict the spatio-temporal variability of
-  species communities, which are critical research questions at the
-  forefront of modern ecology. For instance, jSDM can include phylogeny
-  or functional traits and can account for residual co-occurrences
-  patterns between species to capture the processes shaping communities
-  and their evolution in a changing world. However, the effects of
-  including heterogeneous information sources in jSDMs has not been
-  formally assessed while it raises a number of questions related to
-  their influence on model interpretability and performance.
+  Joint Species Distribution Models (jSDM) are increasingly used to
+  explain and predict biodiversity patterns. jSDMs account for species
+  co-occurrence patterns and can include phylogeny or functional traits
+  to better capture the processes shaping communities. Yet, several
+  factors may limit or affect the interpretability and predictive
+  ability of jSDMs : missing abiotic predictors, omitting
+  ecologically-important species, or increasing the number of model
+  parameters by adding phylogeny and/or trait information.
 \item
-  Here, we investigated the effects on jSDM of including additional
-  information, either species-specific information such as phylogeny
-  and/or traits, or community monitoring data related to accompanying
-  species (i.e sampled at the same time as the target species
-  community). Based on a typical regional case study, we focus on
-  space-time variability in community structure to specifically assess
-  how alternative model formulations (that includes, or not, additional
-  information) affect jSDM interpretability, explanatory and predictive
-  power.
+  We assessed how interpretability, explanatory and predictive power of
+  jSDM varied across four alternative models focusing on 99 coastal
+  benthic marine polychaete species: (1) a baseline jSDM with no
+  additional information sources other than abiotic predictors and
+  residual co-occurrence patterns, (2) a jSDM including phylogeny alone
+  or (3) in combination with traits data and (4) a jSDM including
+  monitoring information related to additional species sampled alongside
+  the target assemblage (i.e.~non-target species that are not of direct
+  interest but potentially interact with the target assemblage). The
+  four models fitted on both presence/absence and abundance data from a
+  regional monitoring programme were assessed using complementary
+  metrics. We compared performance at both species- and community-level,
+  considering multiple facets of species responses and assemblage
+  diversity.
 \item
-  Our results show that jSDM ability to predict variability in targeted
-  species assemblage can be improved by including monitoring data
-  related to accompanying species in the model. Moreover, addition of
-  accompanying species clarifies species-environment relationships by
-  filtering out the weak/spurious correlation inferred in the baseline
-  model. While addition of species-specific information for the target
-  species community (e.g.~traits) does not improve model predictive
-  performance, it nevertheless provides some insights on how species of
-  interest respond to environmental gradients, and hence improves model
-  interpretability.
+  For both presence/absence and abundance data, all models displayed
+  good and similar explanatory power but varied in their
+  interpretability and predictive power. Considering trait data provides
+  insights on species response along environmental gradients, which is a
+  decisive element for model interpretability. Relative to the baseline
+  model, predictive power increased by 26\% when including data on
+  additional species, whereas only marginal changes were detected for
+  the two other models. These patterns are explained by changes in the
+  species-environment relationships and residual co-occurrence patterns
+  inferred by these models.
 \item
-  This work provides important new guidelines for ecological researchers
-  in terms of appropriate strategies to adopt for jSDM fitting as a
-  function of their modelling objective(s) and/or research questions. If
-  the primary goal lies in understanding observed space-time variability
-  in a given species community, then adding species-specific phylogeny
-  or traits appears as an appropriate strategy. Inclusion of
-  accompanying species is however a better strategy if the primary
-  research aim is to predict how the observed species assemblage of
-  interest responds to environmental changes or to alternative
-  scenarios.
+  Overall, this study highlights that adequate strategy to fit jSDM
+  depends on data at hand, modelling objective and research question. To
+  understand observed community space-time variability, adding
+  phylogenetic or trait information is most effective. Inclusion of
+  non-target species is however a better strategy to predict how the
+  target species assemblage responds to environmental changes.
+  Importantly, we provide a comprehensive toolbox for the comparative
+  assessment of jSDM performance.
 \end{enumerate}
 \end{abstract}
 
@@ -237,14 +242,16 @@ explaining, and predicting changes in communities
 (\protect\hyperlink{ref-Tredennick_2021}{Tredennick \emph{et al.} 2021})
 in order to inform effective management or restoration measures in a
 rapidly changing world (\protect\hyperlink{ref-Houlahan_2017}{Houlahan
-\emph{et al.} 2017}; \protect\hyperlink{ref-Dietze_2018}{Dietze \emph{et
-al.} 2018}; \protect\hyperlink{ref-Brudvig_2022}{Brudvig \& Catano
-2022}). Joint Species Distribution Models (jSDM) are particularly
+\emph{et al.} 2017} ; \protect\hyperlink{ref-Dietze_2018}{Dietze
+\emph{et al.} 2018} ; \protect\hyperlink{ref-Brudvig_2022}{Brudvig \&
+Catano 2022}). Joint Species Distribution Models (jSDM) are particularly
 well-suited tools to address these challenges, whether to characterise
 the processes that shape observed communities
-(\protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et al.}
+(\protect\hyperlink{ref-Warton_2015}{Warton \emph{et al.} 2015} ;
+\protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et al.}
 2017b}), or to predict how communities will evolve in the future
-(\protect\hyperlink{ref-Norberg_2019}{Norberg \emph{et al.} 2019}).
+(\protect\hyperlink{ref-Norberg_2019}{Norberg \emph{et al.} 2019} ;
+\protect\hyperlink{ref-Pollock_2020}{Pollock \emph{et al.} 2020}).
 
 jSDMs are multivariate (i.e.~multi-species) extensions of Species
 Distribution Models (SDMs), which have been broadly applied over the
@@ -272,7 +279,7 @@ because it provides a way to disentangle the relative influence of
 abiotic and biotic processes on biodiversity patterns
 (\protect\hyperlink{ref-Godsoe_2017}{Godsoe \emph{et al.} 2017}) while
 also improving model's predictive power
-(\protect\hyperlink{ref-Giannini_2013}{Giannini \emph{et al.} 2013};
+(\protect\hyperlink{ref-Giannini_2013}{Giannini \emph{et al.} 2013} ;
 \protect\hyperlink{ref-Staniczenko_2017}{Staniczenko \emph{et al.}
 2017}). However, in practice, inferring and interpreting residual
 co-occurence patterns using jSDMs remains challenging for several
@@ -285,10 +292,10 @@ presence/absence datasets (\protect\hyperlink{ref-Norberg_2019}{Norberg
 \emph{et al.} 2019} ; \protect\hyperlink{ref-Wilkinson_2020}{Wilkinson
 \emph{et al.} 2020}), simulation studies showed that co-occurence
 networks inferred from such data does not necessarily provide evidence
-for species interactions (\protect\hyperlink{ref-Blanchet_2020}{Blanchet
-\emph{et al.} 2020} ; \protect\hyperlink{ref-Dormann_2018}{Dormann
-\emph{et al.} 2018} ; \protect\hyperlink{ref-Sander_2017}{Sander
-\emph{et al.} 2017}) and only inform about spatial and temporal
+for species interactions (\protect\hyperlink{ref-Sander_2017}{Sander
+\emph{et al.} 2017} ; \protect\hyperlink{ref-Dormann_2018}{Dormann
+\emph{et al.} 2018} ; \protect\hyperlink{ref-Blanchet_2020}{Blanchet
+\emph{et al.} 2020}) and only inform about spatial and temporal
 associations between species (\protect\hyperlink{ref-Keil_2021}{Keil
 \emph{et al.} 2021}). Some authors speculated that jSDMs applied to
 abundance data - instead of presence/absence data - are likely to
@@ -296,12 +303,12 @@ provide a better proxy for biotic interactions
 (\protect\hyperlink{ref-Blanchet_2020}{Blanchet \emph{et al.} 2020} ;
 \protect\hyperlink{ref-Momal_2020}{Momal \emph{et al.} 2020}).
 Accordingly, jSDM have progressively been extended and applied to
-abundance data (\protect\hyperlink{ref-Chiquet_2021}{Chiquet \emph{et
-al.} 2021} ; \protect\hyperlink{ref-Hui_2016}{Hui 2016} ;
+abundance data (\protect\hyperlink{ref-Hui_2016}{Hui 2016} ;
 \protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et al.} 2017b}
-; \protect\hyperlink{ref-Popovic_2022}{Popovic \emph{et al.} 2022}).
-Yet, specific challenges related to modelling abundance data have only
-been recently explored in the context of species distribution modelling
+; \protect\hyperlink{ref-Chiquet_2021}{Chiquet \emph{et al.} 2021} ;
+\protect\hyperlink{ref-Popovic_2022}{Popovic \emph{et al.} 2022}). Yet,
+specific challenges related to modelling abundance data have only been
+recently explored in the context of species distribution modelling
 (\protect\hyperlink{ref-Waldock_2022}{Waldock \emph{et al.} 2022}). To
 date, the predictive and the explanatory power of jSDM fitted to
 abundance data remains largely untested compared to presence/absence
@@ -342,7 +349,7 @@ SDMs (\protect\hyperlink{ref-Morales-Castilla_2017}{Morales-Castilla
 al.} 2021}), which supports the hypothesis that similar species in terms
 of traits and/or recent evolutionary history share similar environmental
 preferences. While similar effects related to inclusion of
-species-specific information areexpected in jSDMs
+species-specific information are expected in jSDMs
 (\protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et al.}
 2017b}), the relative influence of additional sources of information on
 their interpretability and predictive power remains untested
@@ -359,31 +366,43 @@ baseline model excluding additional sources of information (i.e.~a
 classical jSDM), we tested the effect of (1) including phylogeny alone
 and in combination with trait data, (2) incorporating monitoring
 information related non-target species and (3) considering abundance
-instead of occurrence data. We hypothesised that all these sources of
-information should improve jSDM predictive and explanatory powers, but
-did not assume \emph{a priori} that a given modelling strategy would
-lead to greater improvements in model performances.
+instead of presence/absence data. We hypothesised that all these sources
+of information should improve jSDM predictive and explanatory powers,
+but did not assume a priori that a given modelling strategy would lead
+to greater improvements in model performances.
 
-\hypertarget{methods-materials}{%
-\section{Methods \& Materials}\label{methods-materials}}
+\hypertarget{materials-methods}{%
+\section{Materials \& Methods}\label{materials-methods}}
 
 We used the HMSC (Hierarchical Modeling of Species Communities)
 framework applied to the long-term REBENT coastal monitoring dataset
 (\href{https://rebent.ifremer.fr}{rebent.ifremer.fr}). In the following
-subsections, we sequentially describe: (1) the HMSC framework;(2) the
-data used in this study; (3) data splitting between training and testing
-sets to assess the explanatory and predictive powers of models,
-respectively; (4) the rationales for the suite of alternative models
-considered; and, (5) the performance metrics used to compare models.
+subsections, we sequentially describe \cref{fig:workflow} : (1) the HMSC
+framework, (2) the data used in this study, (3) data splitting between
+training and testing sets to assess the explanatory and predictive
+powers of models, respectively, (4) the rationales for the suite of
+alternative models considered and, (5) the performance metrics used to
+compare models.
 
 \begin{figure}
-\hypertarget{fig:workdlow}{%
+\hypertarget{fig:workflow}{%
 \centering
 \includegraphics{figures/fig1.png}
-\caption{Workflow of the study. A. Hierarchical design of a HMSC model
-set-up with environmental variables, phylogeny and traits. B. Data
-acquisition workflow. C. Configuration of the differents
-models.}\label{fig:workdlow}
+\caption{Workflow of the study. A. Structure of a Hierarchical Model of
+Species Community (HMSC) including environmental variables, phylogeny
+and species-specific functional traits. B. Data pre-processing:
+community data partitioning between train and test datasets, estimating
+of phylogenetic distance between species (using taxonomic
+classification) and dimension reduction of species-trait matrix using a
+fuzzy-PCA. C. Summary of the four alternative model structures fitted
+both on presence/absence and abundance data: the Benchmark, Phylogeny
+and Traits \& Phylogeny models only considered polychaete species
+assemblage data, while the Whole Community model includes information
+related to additional species sampled alongside the target assemblage
+(i.e.~non-target species that are not of direct interest but potentially
+interact with the target assemblage). Random effects accounting for the
+sampling year, site and habitat were included in all
+models.}\label{fig:workflow}
 }
 \end{figure}
 
@@ -400,21 +419,20 @@ models the realised niche (i.e., the set of environmental conditions
 that is biotically suitable and accessible to the species; Ovaskainen \&
 Abrego (\protect\hyperlink{ref-Ovaskainen_2020}{2020})) of each species
 (B matrix), where each dimension of the niche is a covariate
-(e.g.~temperature) included in the model
-(\protect\hyperlink{ref-Ovaskainen_2020}{Ovaskainen \& Abrego 2020}).
+(e.g.~temperature) included in the model (\cref{fig:workflow} ;
+Ovaskainen \& Abrego (\protect\hyperlink{ref-Ovaskainen_2020}{2020})).
 Including trait data enables estimating of species-specific expected
 niche value by accounting for trait-environment relationships, where
 species with similar traits are expected to respond similarly along
-environmental gradients
-(\protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et al.}
-2017b} ; \protect\hyperlink{ref-Ovaskainen_2020}{Ovaskainen \& Abrego
-2020}). It is well-established that phylogenetically-close species tend
-to share similar trait values or niches
-(\protect\hyperlink{ref-Wiens_2010}{Wiens \emph{et al.} 2010}). Adding
-phylogenetic data to a HMSC model already including traits is not
-necessarily redundant because it could capture residual ecological
-information not included in the available trait data. This can
-theoretically enhance estimating of species niches
+environmental gradients (\cref{fig:workflow} ; Ovaskainen \emph{et al.}
+(\protect\hyperlink{ref-Ovaskainen_2017a}{2017b}) ; Ovaskainen \& Abrego
+(\protect\hyperlink{ref-Ovaskainen_2020}{2020})). It is well-established
+that phylogenetically-close species tend to share similar trait values
+or niches (\protect\hyperlink{ref-Wiens_2010}{Wiens \emph{et al.}
+2010}). Adding phylogenetic data to a HMSC model already including
+traits is not necessarily redundant because it could capture residual
+ecological information not included in the available trait data. This
+can theoretically improve species niche estimates
 (\protect\hyperlink{ref-Ovaskainen_2020}{Ovaskainen \& Abrego 2020}).
 Inclusion of such additional pieces of information can moreover improve
 model fit for rare species by borrowing information on traits- (or
@@ -429,21 +447,21 @@ each random effect, two matrices of latent variables are estimated
 (\protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et al.}
 2017b} ; \protect\hyperlink{ref-Tikhonov_2019b}{Tikhonov \emph{et al.}
 2019} ; \protect\hyperlink{ref-Ovaskainen_2020}{Ovaskainen \& Abrego
-2020}): the \(H\) matrix (called \emph{site loadings}) contains the
-values of missing covariates not included in the model
-(\protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et al.}
-2017b} ; \protect\hyperlink{ref-Ovaskainen_2020}{Ovaskainen \& Abrego
-2020}); while the \(\Lambda\) matrix (called \emph{species loadings})
-corresponds to the response of the species to missing covariates
-(\protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et al.}
-2017b} ; \protect\hyperlink{ref-Ovaskainen_2020}{Ovaskainen \& Abrego
-2020}). These covariates thus capture residual variance, which can be
-due to various factors including missing environmental features or the
-effect of biotic interactions
-(\protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et al.}
-2017b} ; \protect\hyperlink{ref-Ovaskainen_2017b}{Ovaskainen \emph{et
-al.} 2017a} ; \protect\hyperlink{ref-Ovaskainen_2020}{Ovaskainen \&
-Abrego 2020}).
+2020}): the \(\Eta\) matrix (called site loadings) contains the values
+of missing covariates not included in the model (\cref{fig:workflow} ;
+Ovaskainen \emph{et al.}
+(\protect\hyperlink{ref-Ovaskainen_2017a}{2017b}) ; Ovaskainen \& Abrego
+(\protect\hyperlink{ref-Ovaskainen_2020}{2020})); while the \(\Lambda\)
+matrix (called species loadings) corresponds to the response of the
+species to missing covariates (\cref{fig:workflow} ; Ovaskainen \emph{et
+al.} (\protect\hyperlink{ref-Ovaskainen_2017a}{2017b}) ; Ovaskainen \&
+Abrego (\protect\hyperlink{ref-Ovaskainen_2020}{2020})). These
+covariates thus capture residual variance, which can be due to various
+factors including missing environmental features or the effect of biotic
+interactions (\protect\hyperlink{ref-Ovaskainen_2017b}{Ovaskainen
+\emph{et al.} 2017a} ;
+\protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et al.} 2017b}
+; \protect\hyperlink{ref-Ovaskainen_2020}{Ovaskainen \& Abrego 2020}).
 
 \hypertarget{datasets}{%
 \subsection{Datasets}\label{datasets}}
@@ -451,103 +469,106 @@ Abrego 2020}).
 \hypertarget{faunistic-data}{%
 \subsubsection{Faunistic data}\label{faunistic-data}}
 
-Faunistic data come from the REBENT program
+Faunistic data come from the REBENT programme
 (\href{https://rebent.ifremer.fr}{rebent.ifremer.fr}), which is a
-station-based monitoring network initiated following the dramatic oil
-spill of the Erika tanker in December 1999 off Brittany's southern
-coastline (Western France). The goal of the monitoring network is to
-detect, characterise and explain changes in French coastal benthic
-ecosystems through space and time. Between 2003 and 2017, this ongoing
-program has been monitoring four distinct habitats across 49 sites.
-Overall, across a total of 375 sampling units (i.e.~unique combination
-of years, sites and habitats), 861,997 individuals belonging to 821
-species were collected and identified since the beginning of the program
-Here, we focused on benthic communities found in two soft-bottom
-habitats: intertidal bare sediments and intertidal seagrass meadows
-(\emph{Zostera marina}). These habitats were sampled following the same
-protocol across 23 sites along Brittany's coastline (Fig S1). At each
-site, sampling consists in collection of 3 sediment cores of 0.03m2 that
-are pooled together and considered as a single sampling unit at each
-site. For each sampling event, individuals were identified to the lowest
-taxonomic level possible (mostly species level). A detailed description
-of the sampling methodology is provided in Boyé \emph{et al.}
-(\protect\hyperlink{ref-Boye_2017}{2017}).
+station-based ongoing monitoring network initiated in 2003 to detect,
+characterise and explain changes of coastal benthic macrofauna across
+Brittany's coastline (Western France). Here, we focused on benthic
+infaunal communities found in two soft-bottom habitats: intertidal bare
+sediments and intertidal seagrass meadows (\emph{Zostera marina}). Data
+from Boyé \emph{et al.} (\protect\hyperlink{ref-Boye_2019a}{2019}),
+covering 23 sites (Fig. S1) monitored using the same protocol between
+2006 and 2014, were used in this study. At each site, sampling consists
+in the collection of three sediment cores of 0.03m\(^2\) that are pooled
+together and considered as a single sampling unit at each site. For each
+sampling event, individuals were identified to the lowest taxonomic
+level possible (mostly species level; for simplicity we hereafter use
+the term ``species''). A detailed description of the sampling
+methodology is provided in (\protect\hyperlink{ref-Boye_2017}{Boyé
+\emph{et al.} 2017} ; \protect\hyperlink{ref-Boye_2019a}{Boyé \emph{et
+al.} 2019}). Overall, across a total of 375 sampling units (i.e.~unique
+combination of years, sites and habitats), 861,997 individuals belonging
+to 821 species were collected and identified.
 
 \hypertarget{functional-traits-and-phylogeny-data}{%
 \subsubsection{Functional traits and phylogeny
 data}\label{functional-traits-and-phylogeny-data}}
 
-In this study, we collated species-specific information such as
-functional traits and phylogeny for inclusion in different models. We
-chose to focus on a particular class, the polychaeta. Polychaeta, which
-encompasses numerous species that exhibit diverse lifestyles
-(\protect\hyperlink{ref-Jumars_2015}{Jumars \emph{et al.} 2015}), are
-valuable indicators of the health of benthic habitats
+We collated species-specific information related to functional traits
+and phylogeny for inclusion in different models. These data were
+particularly well resolved for the polychaete community which therefore
+constitutes the main object of inference. Polychaeta is a taxonomic
+group composed of numerous species exhibiting diverse lifestyles
+(\protect\hyperlink{ref-Jumars_2015}{Jumars \emph{et al.} 2015}) that
+can be used to monitor the health of benthic habitats
 (\protect\hyperlink{ref-Giangrande_2005}{Giangrande \emph{et al.}
-2005}). The polychaeta traits data, which was available for the 99
-polychaeta species in the training set, includes 11 fuzzy-coded traits
-for a total of 41 modalities (\protect\hyperlink{ref-Boye_2019a}{Boyé
-\emph{et al.} 2019}). Prior to jSDM fitting, the dimensionality of the
-trait matrix was reduced using a fuzzy-PCA with the \emph{fpca} function
-from the \emph{ade4} R package
+2005}). The polychaete traits data, which was available for the 99
+polychaete species present in the training set, includes 11 fuzzy-coded
+traits for a total of 41 modalities
+(\protect\hyperlink{ref-Boye_2019a}{Boyé \emph{et al.} 2019}). Prior to
+jSDM fitting, the dimensionality of the trait matrix was reduced using a
+fuzzy-PCA with the \emph{fpca} function from the \emph{ade4} R package
 (\protect\hyperlink{ref-Thioulouse_2018}{Thioulouse \emph{et al.}
 2018}). The first three axes, which account for 59\% of the total
 variance of the trait matrix, were included in the model as synthetic
-traits data (Fig S5) . The first axis distinguishes mobile predatory
-species from sessile microphages; the second axis differentiates
-semelparous species from iteroparous species; and, the third axis
-separates burrowers from tube-dwellers (Fig S5).
+traits data (\cref{fig:workflow}). The first axis distinguishes mobile
+predatory species from sessile microphages; the second axis
+differentiates semelparous species from iteroparous species; and, the
+third axis separates burrowers from tube-dwellers (Fig. S5).
 
-In complement to the traits information available for the 99 polychaeta
+In complement to the traits information available for the 99 polychaete
 species of interest, we retrieved their taxonomic classification through
 the WoRMS database
-(\href{https://www.marinespecies.org}{www.marinespecies.org}) and used
-this information as a proxy for phylogenetic relationships
-(\protect\hyperlink{ref-Ovaskainen_2020}{Ovaskainen \& Abrego 2020} ;
-\protect\hyperlink{ref-Ricotta_2012}{Ricotta \emph{et al.} 2012}).
-Phylogenetic distances between Polychaeta species were then estimated
-using the \emph{ape} R package
-(\protect\hyperlink{ref-Paradis_2019}{Paradis \& Schliep 2019}).
+((\href{https://www.marinespecies.org}{www.marinespecies.org}; assessed
+in january 2020) and used this information as a proxy for phylogenetic
+relationships (\cref{fig:workflow} ; Ricotta \emph{et al.}
+(\protect\hyperlink{ref-Ricotta_2012}{2012}) ; Ovaskainen \& Abrego
+(\protect\hyperlink{ref-Ovaskainen_2020}{2020})). Phylogenetic distances
+between polychaete species were then estimated using the \emph{ape} R
+package (\protect\hyperlink{ref-Paradis_2019}{Paradis \& Schliep 2019}).
 
 \hypertarget{environmental-data}{%
 \subsubsection{Environmental data}\label{environmental-data}}
 
-Based on Boyé (\protect\hyperlink{ref-Boye_2019b}{2019}), we selected
-seven environmental variables to characterise the ecological niche of
-each species within the focal communities. These seven variables
+Following Boyé \emph{et al.} (\protect\hyperlink{ref-Boye_2019a}{2019}),
+we selected seven environmental variables to characterise the ecological
+niche of each species within the target community. These seven variables
 quantify different components of coastal environmental variability
 including hydrology (sea water temperature, salinity and current
-velocity), sedimentology (mud and organic matter content), granulometry
-(Trask index) and local wave exposure (fetch). For each variable, the
-first and second degree polynomials have been computed to account for
-non-linear responses to the environmental predictors.
+velocity), sedimentology (mud and organic matter content), substrate
+heterogeneity (Trask index) and local wave exposure (fetch). For each of
+these seven variables, the first and second degree polynomials were
+computed to account for non-linear responses.
 
 \hypertarget{comparison-of-alternative-model-structures}{%
 \subsection{Comparison of alternative model
 structures}\label{comparison-of-alternative-model-structures}}
 
 The first model (benchmark model abbreviated as ``Bench'') only relies
-on polychaeta community data and environmental covariates. The second
-model (phylogenetic model abbreviated as ``Ph'') adds phylogenetic data
-to the Bench model, which implies that rare species can thus benefit
+on polychaete community data and environmental covariates
+(\cref{fig:workflow}). The second model (phylogenetic model abbreviated
+as ``Ph'') adds phylogenetic data to the Bench model
+(\cref{fig:workflow}), which implies that rare species can thus benefit
 from phylogenetic-environment relationships estimated for closely
 related species (\protect\hyperlink{ref-Ives_2011}{Ives \& Helmus
-2011}). The third model (traits-phylogeny model abbreviated as ``TrPh'')
-adds traits data to the Ph model, which means that rare species can
-benefit from traits-environment relationships estimated for species
-presenting similar functional traits (whereas phylogeny can capture
-ecological similarities between species, which are not captured by trait
-similarity; (\protect\hyperlink{ref-Pollock_2012}{Pollock \emph{et al.}
-2012})). Finally, the fourth model (whole community model abbreviated as
-``Whc''), adds information about the whole community
-(i.e.~non-polychaeta species that represents 278 taxa) to the Bench
-model (only 99 polychaeta). This model does not include trait or
-phylogenetic data for the sake of computation time. Each of these four
-models were fitted twice, either using occurrence or abundance data. All
-models include the same random effects: a temporal random effect to
-account for variability across years, a spatial random effect to account
-for variability across sites and another spatial random effect to
-account for variability across habitats (bare vs seagrass).
+2011}). The third model (traits \& phylogeny model abbreviated as
+``TrPh'') adds traits data to the Ph model (\cref{fig:workflow}), which
+means that rare species can benefit from traits-environment
+relationships estimated for species presenting similar functional traits
+(whereas phylogeny can capture ecological similarities between species,
+which are not captured by trait similarity; Pollock \emph{et al.}
+(\protect\hyperlink{ref-Pollock_2012}{2012})). Finally, the fourth model
+(whole community model abbreviated as ``WhC''), adds information about
+the whole community (i.e.~including non-polychaete species for a total
+of 278 species) to the Bench model (only 99 polychaete;
+\cref{fig:workflow}). This model does not include trait or phylogenetic
+data for the sake of computation time. Each of these four models were
+fitted twice, either using presence/absence or abundance data. All
+models include the same random effects (\cref{fig:workflow}): a temporal
+random effect to account for variability across years, a spatial random
+effect to account for variability across sites and another spatial
+random effect to account for variability across habitats (bare vs
+seagrass).
 
 \hypertarget{model-fitting-and-performance}{%
 \subsection{Model fitting and
@@ -571,81 +592,88 @@ Rubin 1992}).
 \subsubsection{Assessing model performance and
 interpretability}\label{assessing-model-performance-and-interpretability}}
 
-In order to independently assess models' predictive performance, the
-REBENT dataset was split into a train and a test dataset. The
-\emph{training dataset} includes 180 sampling units defined as unique
-combinations of years (varies between 6 and 9 depending on sites), sites
-(21) and habitats (2). From this dataset, we removed the species that
-occurred less than 4 times across the 180 observational units to avoid
-convergence issues and poor model inference, leading to the removal of
-241 species. The remaining 278 species encompassed the 99 polychaeta
-species that made up the target community and the 142 accompanying
-species that were included in the \emph{Whc} model. The \emph{test
-dataset} was composed of 35 sampling units resulting from surveys
-conducted across two specific sites (9 years for both), which included
-the two habitats. To investigate jSDM's performance, models were
-evaluated using a set of complementary metrics to evaluate both their
-explanatory (predictions compared to observations of the train dataset)
-and predictive (predictions compared to observations of the test
-dataset) powers (\protect\hyperlink{ref-Wilkinson_2020}{Wilkinson
-\emph{et al.} 2020}). The performance of all models was assessed
-globally but also separately for each species using AUC for
-occurrence-based models and root mean squared errors (RMSE) for
-abundance-based models. We investigated whether models including
-additional sources of information had a higher performance than the
-\emph{Bench} model using Dunn's multiple comparison test
-(\protect\hyperlink{ref-Dunn_1964}{Dunn 1964}). For the model that
-demonstrated the best improvement, we examined whether the improvement
-correlated with individual species occurrence or abundance (e.g., is the
-improvement higher for abundant species relative to than for rare
-species?) using the Kendall rank correlation coefficient.
+In order to independently assess models' predictive performance, we
+splitted the dataset into a train and a test set. The training dataset
+includes 180 sampling units defined as unique combinations of years
+(varies between six and nine depending on sites), sites (21) and two
+habitats (Fig. S1). From this dataset, that originally contained 519
+species, we removed the species that occurred less than four times
+across the 180 observational units to avoid convergence issues and poor
+model inference, leading to the removal of 241 species. The remaining
+278 species encompassed the 99 polychaete species that made up the
+target community and the 142 non-target species that were included in
+the WhC model. The test dataset was composed of 35 sampling units
+related to all surveys over a 9-year period at two specific sites ,
+where both habitats (i.e.~seagrass and bare sand) occur. Beyond the
+presence of both habitats, these two sites were also chosen because they
+occur in environmental conditions that can be considered average at the
+scale of the region (thereby limiting extrapolation of the model; Boyé
+\emph{et al.} (\protect\hyperlink{ref-Boye_2017}{2017}) ; Boyé \emph{et
+al.} (\protect\hyperlink{ref-Boye_2022}{2022}) ; Toumi Chirine
+(\protect\hyperlink{ref-Toumi_nd}{n.d.})) while still harbouring
+different communities, representative of the known diversity gradient
+across the region (\protect\hyperlink{ref-Boye_2017}{Boyé \emph{et al.}
+2017} ; \protect\hyperlink{ref-Toumi_nd}{Toumi Chirine n.d.}).
 
-While the AUC and the RMSE can be used to explore model performance
-globally or for each species, these measures provide no information at
-the community scale. Hence, we also explored qualitatively the
-differences between observed and predicted community composition (both
-for the train and test datasets) by decomposing the total beta diversity
-(using the Sørensen index) into species turnover and nestedness using
-the \emph{betapart.temp} function from the betapart R package
-(\protect\hyperlink{ref-Baselga_2010}{Baselga 2010} ;
-\protect\hyperlink{ref-Baselga_2022}{Baselga \emph{et al.} 2022}). For
-abundance-based models, predictions were transformed to presence/absence
-before computing beta diversity (i.e.~all predictions with abundance
-different than zero were considered as presences). Under this framework,
-a model predicting the exact observed community would have a total beta
-diversity of zero whereas a model predicting a community completely
-different from the one observed would have a total beta diversity of
-one. As outlined above, the Baselga's framework allows decomposition
-into two components the type of error when predicting community
-composition: (1) getting the identity of the species wrong (turnover) or
-(2) predicting the right species but omitting some (nestedness). In the
-first case, the model will correctly predict specific richness, while in
-the other case the model will be more conservative in predicting the
-correct species but present a bias in species richness.
+To investigate jSDM's performance, models were evaluated using a set of
+complementary metrics to evaluate both their explanatory (predictions
+compared to observations of the train dataset) and predictive
+(predictions compared to observations of the test dataset) powers
+(\protect\hyperlink{ref-Wilkinson_2020}{Wilkinson \emph{et al.} 2020}).
+To assess models' performance, both overall (i.e., across all species)
+and at individual species level, we used AUC and root mean squared
+errors (RMSE) for presence/absence and abundance models, respectively.
+For the ``whole community'' model that most improved predictive power
+(see results), we further explored species-specific gain in explanatory
+power by examining potential correlations between (i) RMSE and the
+proportion of presences and (ii) RMSE and average abundance using the
+Kendall rank correlation coefficient.
+
+While the AUC and the RMSE provide estimates of model performance,
+either overall or for individual species, these measures only partially
+capture model accuracy (or performance) at the community scale. Hence,
+we also explored differences between observed and predicted community
+composition (both for the train and test datasets) by decomposing the
+total beta diversity (using the Sørensen index) into species turnover
+and nestedness using the \emph{betapart.temp} function from the
+\emph{betapart} R package (\protect\hyperlink{ref-Baselga_2010}{Baselga
+2010} ; \protect\hyperlink{ref-Baselga_2022}{Baselga \emph{et al.}
+2022}). For abundance models, predictions were transformed to
+presence/absence before computing beta diversity (i.e.~all non-zero
+abundance predictions were considered as presences). Thus, this
+framework assigns a total beta diversity of zero to a model predicting
+the exact observed community, whereas a model predicting a completely
+different community compared to observations is associated with a total
+beta diversity of one. Moreover, using Baselga \emph{et al.} (2022)'s
+framework, we decomposed beta diversity (i.e.~predicted error in
+community composition) according to two components: (1) turnover, if
+model correctly estimates observed species richness but mispredicts
+species identity and (2) nestedness, if model correctly predicts the
+identity of observed species but omits some.
 
 To assess model interpretability, we calculated the proportion of
 explained variance attributed either to environmental covariates (fixed
 effects) or to random effects. To evaluate the effect of model structure
 on estimated species-environment relationships, we classified the shapes
-of the response curves inferred from the different models according to
-both their direction (decline, null or increase) and their acceleration
-(decelerated, constant or accelerated), providing nine different
-categories (\protect\hyperlink{ref-Rigal_2020}{Rigal \emph{et al.}
-2020}). We then looked for differences between models regarding the
-proportion of response curves attributed to each category.
+of estimated response curves inferred from the different models
+according to nine categories that characterise both their direction
+(decline, null or increase) and their acceleration (decelerated,
+constant or accelerated) (\protect\hyperlink{ref-Rigal_2020}{Rigal
+\emph{et al.} 2020}). We then looked for differences between models in
+terms of proportion of estimated response curves across each of these
+nine categories. Finally, to compare changes in random effects across
+models, we estimated differences between the Bench model and the best
+performing model in terms of residual co-occurrence patterns. We
+specifically quantified differences between models in both magnitude and
+sign of residual species-species correlations using the following index:
 
-Finally, we checked the extent to which estimated correlation
-coefficients differed between the Bench model and the best performing
-model while also looking for evidence of inversion of effects using the
-following index:
-
-\[\text{Index} = |corr_{\text{best model}} - corr_{\text{benchmark}}| * sign(corr_{\text{best model}} * corr_{\text{benchmark}})\]
+\[\text{Index} = |corr_{\text{best model}} - corr_{\text{benchmark}}| \times sign(corr_{\text{best model}} \times corr_{\text{benchmark}})\]
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
-The MCMC convergence and the effective sample size of the different HMSC
-models were satisfactory (see Appendix B).
+Both MCMC convergence and effective sample size of the different jSDMs
+were satisfactory (see Appendix B).
 
 \hypertarget{model-fit-predictive-power}{%
 \subsection{Model Fit \& Predictive
@@ -654,267 +682,303 @@ power}\label{model-fit-predictive-power}}
 \hypertarget{species-level}{%
 \subsubsection{Species level}\label{species-level}}
 
-Occurrence-based models presented an excellent explanatory power, with
-the AUC being on average greater than 0.9 (Figure S4). Their predictive
-power was significantly lower with the AUC being about 0.65 on average
-(Figure S4). For abundance-based models, the RMSE computed on the
-\emph{training set} ranged from 8.92 to 9.34 on average (Figure S4).
-Their predictive power was heterogeneous with the \emph{whole community}
-(\emph{WhC}) model (RMSE = 5.83 on average) performing better (Figure
-S4) than the three other models (RMSE values ranged from 54.2 to 95.6,
-on average).
+Presence/absence models presented an excellent explanatory power as
+reflected by mean AUC estimates greater than 0.9 (Fig. S4). Conversely,
+their predictive power was rather low given a mean AUC estimate of
+\textasciitilde0.65 (Fig. S4). For abundance models, mean RMSE computed
+on the training set ranged from 8.94 to 9.35 (Fig. S4). Their predictive
+power was heterogeneous with the whole community (WhC) model presenting
+the highest performance (\(\text{mean RMSE} = 5.83\)) followed by the
+benchmark model (Bench) (\(\text{mean RMSE} = 53.7\)), the phyloheny
+(Ph) model (\(\text{mean RMSE}=63.7\)) and the traits \& phylogeny model
+(\(\text{mean RMSE} = 95.3\)) (Fig. S4).
 
-For the sake of interpretability, all models were compared against
-\emph{Bench} model (\cref{fig:fig2}). Model's explanatory power was not
-significantly improved for both \emph{TrPh} and \emph{Ph} models and
-only slightly increased for the \emph{WhC} models (both occurrence- and
-abundance-based). This increase in explanatory power was modest with the
-AUC only increasing by 0.0034 ± 0.0114 (mean ± sd) for occurence-based
-models and the RMSE only decreasing by 0.035 ± 0.796 (mean ± sd) for
-abundance-based models. This improvement mainly concerned the most
-common and abundant species, as reflected by the negative correlations
-between species-specific RMSE and mean species occurrence (Kendall's τ =
--0.28, p-value \textless{} 1e-5) or mean species abundance (Kendall's τ
-= -0.29, p-value \textless{} 1e-4). In terms of predictive power,
-performance only significantly increased for the \emph{Whc}
-abundance-based model with a decrease in RMSE of 0.27 ± 0.44 (mean ± sd)
-relative to the \emph{Bench} model.
+Relative to the benchmark model (\cref{fig:fig2}), model explanatory
+power only sightly decreased for both TrPh (mean increase in RMSE +0.8\%
+and decrease in AUC of -0.6\%) and Ph models (mean increase in RMSE of
++0.5\% and decrease in AUC -0.6\%). Explanatory power only slightly
+increased for the WhC models (mean decrease in RMSE of -3.6\% and
+increase in AUC +0.3\%). In terms of predictive power, performance
+mostly increased for the WhC abundance model with a mean decrease in
+RMSE of 26\% relative to the benchmark model. This improvement concerned
+62 species (mean decrease in RMSE of -49.3\%; 10h and 90th deciles
+{[}-94.8\% ; -9.7\%{]} for these species) whereas 12 species presented a
+performance decrease (+36\% RMSE; 10th and 90th deciles {[}10\% ;
+70.1\%{]}). Only 32 and 36 species were improved for TrPH and Ph models,
+with mean decrease/increase in RMSE of 26.5\% and 24.9\% across all
+species, respectively.
+
+Model explanatory performance increased for the most common (correlation
+between RMSE and proportion of presence: Kendall's τ = -0.28, p-value
+\textless{} 1e-5) and abundant (correlation between RMSE and average
+species abundance: Kendall's τ = -0.29, p-value \textless{} 1e-4).
 
 \begin{figure}
 \hypertarget{fig:fig2}{%
 \centering
 \includegraphics{figures/fig2.png}
-\caption{Relative change in explanatory (left column) and predictive
-(right column) power of different model architectures with respect to
-the benchmark fitted with occurrence (top line) or abundance (bottom
-line) data.}\label{fig:fig2}
+\caption{Relative change in explanatory (left column; panels A and C)
+and predictive (right column; panels B and D) power of different model
+structures (as colour-coded: purple for benchmark (Bench), yellow for
+phylogeny (Ph), red for traits \& phylogeny (TrPh), and green for whole
+community (WhC) models). Relative changes (in \%) are expressed relative
+to the benchmark fitted on presence/absence (top row; panels A and B) or
+abundance (bottom row; panels C and D) data. In all panels, points above
+the zero line (i.e.~increase in AUC for panels A-B but decrease in RMSE
+for panels C-D) indicate performance gain.}\label{fig:fig2}
 }
 \end{figure}
 
 \hypertarget{community-level}{%
 \subsubsection{Community level}\label{community-level}}
 
-On the training set, the median Sørensen dissimilarity ranged from 0.36
-to 0.38 across models (both occurrence- and abundance-based), suggesting
-that predicted communities are relatively similar to observed
-communities (Figure S8 and Figure S9). Errors were equally distributed
-between turnover and nestedness. With the test data set, abundance-based
-models presented a median Sørensen dissimilarity of 0.65 while
-dissimilarity reached 0.72 for occurrence-based models (Figure S8 and
-Figure S9). This increased dissimilarity relative to predictions made on
-the training dataset is a direct consequence of the degradation of the
-predictive power of the various models at the species scale (see above).
-Note that the \emph{Whc} model makes more nestedness errors than the
-others, suggesting that this model is more conservative in terms of
-community composition (Figure S8 and Figure S9).
+On the training set, the median Sørensen dissimilarity index, which
+ranged from 0.36 to 0.38 across all models (both presence/absence and
+abundance), suggests that predicted communities are relatively similar
+to observed communities (Fig. S8 and Fig. S9). Errors were equally
+distributed between turnover and nestedness (Fig. S8 and Fig. S9).
+However, relative to observed communities in the test data set,
+abundance models predictions presented a median Sørensen dissimilarity
+of 0.65 while dissimilarity reached 0.72 for presence/absence models
+(Fig. S8 and Fig. S9). Greater dissimilarity between predicted and
+observed communities in the test dataset relative to the training
+dataset is a direct consequence of models' limited predictive power at
+the species level (see above and Fig. S8 and Fig. S9). Note that
+proportion of nestedness errors is greater in the WhC model than in
+other models, suggesting that this model tends to correctly predict the
+presence of a subset of the observed species assemblage composition
+(Fig. S8 and Fig. S9).
 
 \hypertarget{variance-partitioning}{%
 \subsection{Variance partitioning}\label{variance-partitioning}}
 
-The amount of variance explained by each model can be decomposed between
-environmental covariates and random effects. For all models, the
-environmental variables account for most (\textgreater{} 75 \% ± 18, on
-average) of the explained variance (Figure S7). However, compared to the
-\emph{Bench} model, a larger part of variance is explained by the random
-effect in the \emph{WhC} model (Figure S7).For abundance-based models,
-the median of the relative change in variance explained by random
-effects relative to the \emph{Bench} model increased by 0.086 for the
-\emph{Ph} model, 0.199 for the \emph{TrPh} model and 0.354 for the
-\emph{WhC} model (\cref{fig:fig3}). Similar results were obtained for
-occurrence-based models (\cref{fig:fig3}).
+The amount of variance explained by each model can be partitioned
+between environmental covariates and random effects. For all models,
+environmental variables account for most (more than 75\% ± 18\%, mean ±
+s.d.) of the variance (Fig. S7). However, a larger part of variance is
+explained by random effects in the WhC model compared to the Bench model
+(Fig. S7). Relative to the Bench model, the median relative change in
+variance explained by random effects increased by 8.6\% for the Ph
+model, 19.9\% for the TrPh model and 35.4\% for the WhC model
+(\cref{fig:fig3}). Similar results were obtained for presence/absence
+models (\cref{fig:fig3}).
 
 \begin{figure}
 \hypertarget{fig:fig3}{%
 \centering
 \includegraphics{figures/fig3.png}
 \caption{Relative change in variance explained by environmental
-predictors (left column) and by random effects (right column) power of
-different model architectures with respect to the benchmark fitted with
-occurrence (top line) or abundance (bottom line) data.}\label{fig:fig3}
+predictors (left column) and by random effects (right column) according
+to alternative models as colour-coded (purple for Benchmark (Bench),
+yellow for phylogeny (Ph), red for traits \& phylogeny (TrPh), and green
+for whole community (WhC) models). Percentage change is expressed
+relative to the benchmark model fitted with presence/absence (top
+panels) or abundance (bottom panels) data. In all panels, positive
+(negative) values point to an increase (decrease) in the proportion of
+variance explained by the focal model relative to the benchmark
+model.}\label{fig:fig3}
 }
 \end{figure}
 
 \hypertarget{species-niche-estimated}{%
 \subsection{Species niche estimated}\label{species-niche-estimated}}
 
-For abundance-based models, most response curves were neither convex nor
-concave. For the \emph{Bench}, \emph{TrPh} and \emph{Ph} models, more
-than 60\% of the estimated curves were flat, suggesting a lack of
-ecologically meaningful species-environment relationships
-(\cref{fig:fig4}). This rate reached more than 80\% for the \emph{WhC}
-model. Other species-environment relationships included constant or
-accelerated declines with \textasciitilde10\% and \textasciitilde15\% of
-such shapes for the three models that do not include the whole community
-(\cref{fig:fig4}). For the \emph{WhC} model, these percentages dropped
-to 4.62\% and 9.24\%, respectively (\cref{fig:fig4}). Similar results
-were obtained for occurence-based models (Figure S10).
+For all abundance models, more than 60\% of estimated response curves
+were flat, suggesting a lack of ecologically meaningful
+species-environment relationships (\cref{fig:fig4}). This proportion
+even reached more than 80\% for the WhC model. Almost no convex or
+concave responses curves were estimated for abundance models. Meaningful
+species-environment relationships essentially included constant or
+accelerated declines, which respectively represented \textasciitilde10\%
+and \textasciitilde15\% of estimated response curves for the three
+models that do not include the whole community (i.e.~Bench, TrPh and Ph)
+(\cref{fig:fig4}). For the WhC model, these percentages dropped to
+4.62\% and 9.24\%, respectively (\cref{fig:fig4}). Similar results were
+obtained for presence/absence models (Fig. S10).
 
 \begin{figure}
 \hypertarget{fig:fig4}{%
 \centering
 \includegraphics{figures/fig4.png}
-\caption{Proportion of response curves according to the nomenclature
-defined by Rigal \emph{et al.}
-(\protect\hyperlink{ref-Rigal_2020}{2020}) for different model
-architectures. All models have been fitted with abundance data. Each
-response is characterised by a shape (column) and an intensity
-(line).}\label{fig:fig4}
+\caption{Number (y-axis) and proportion (indicated above individual
+bars) of response curves (i.e.~one for each species-predictor
+combination) according to the nomenclature (nine shapes highlighted by
+the black curve in each panel) defined by Rigal \emph{et al.}
+(\protect\hyperlink{ref-Rigal_2020}{2020}) for different abundance model
+structures. See Fig. S10 for a similar representation for
+presence-absence models.}\label{fig:fig4}
 }
 \end{figure}
 
-Considering the \emph{TrPh} model, we further investigated the link
-between the first fuzzy-PCA axis obtained from the trait matrix and the
-seven environmental predictors to determine whether some traits were
-favoured (or hindered) under certain environmental conditions (Figure
-S6). Both abundance and occurrence-based models highlighted potentially
-meaningful trait-environment relationships. For instance, mobile
-predatory species were more negatively affected by fetch than sessile
-suspensivore. We further found that increasing concentration in organic
-matter and decreasing current velocities were associated with a higher
-abundance of suspensivore populations.
+Both abundance- and presence/absence TrPh models (which include species
+functional traits) reveal some meaningful trait-environment
+relationships between the first fuzzy-PCA axis and the seven
+environmental predictors. This suggests that the occurrence of certain
+traits is likely favoured (or hindered) under certain environmental
+conditions (Fig. S6). For instance, mobile predatory species were more
+negatively affected by fetch than sessile suspensivores (Fig. S6).
+Moreover, increase in organic matter concentration and decrease in
+current velocities were associated with higher abundances of
+suspensivore populations.
 
 \hypertarget{exploring-the-residual-correlation}{%
 \subsection{Exploring the residual
 correlation}\label{exploring-the-residual-correlation}}
 
-Since all models included the same random effects, we qualitatively
-compared the residual correlations estimated by the \emph{Bench} model
-to the \emph{WhC} model both occurrence- and abundance-based. We
-specifically considered the \emph{WhC} model for this specific
-comparison, because of (1) its higher performances relative to
+Since all models included the same random effects, residual correlation
+matrices are comparable. Here, we compared residual correlations between
+the Bench model and the WhC model both when fitted to presence/absence
+or abundance data. We specifically considered the WhC model for this
+specific comparison, because of (1) its higher performances relative to
 alternative models and (2) the larger proportion of variance explained
-by the random effects in this model relative to others
-(\cref{fig:fig3}).
+by random effects in this model relative to others (\cref{fig:fig3}).
 
-The residual correlations estimated by the \emph{WhC} model were similar
-to those estimated by the \emph{Bench} model, whether the models were
-occurrence- or abundance-based (\cref{fig:fig5} and Figure S11). Yet,
-the agreement between models varied depending on the random effect
-considered. For instance, considering abundance-based models, the
-correlation was low for random site effects (\(\text{R}^2 = 0.66\)),
-moderate for random habitat effects (\(\text{R}^2 = 0.8\)) and high for
-random year effects (\(\text{R}^2 = 0.91\))
+Residual correlations estimated by the WhC model were similar to those
+estimated by the Bench model, regardless of whether the models were
+fitted on presence/absence or abundance data (\cref{fig:fig5} and Fig.
+S11). Yet, agreement between models varied across the different random
+effects. For instance, when comparing residuals between Bench and WhC
+fitted on abundance data, correlation was low for random site effects
+(\(\text{R}^2 = 0.66\)), moderate for random habitat effects
+(\(\text{R}^2 = 0.8\)) and high for random year effects
+(\(\text{R}^2 = 0.91\)).
 
 \begin{figure}
 \hypertarget{fig:fig5}{%
 \centering
 \includegraphics{figures/fig5.png}
-\caption{Comparison of residual correlations estimated by Whole
-Community Model and Benchmark model for the three random effect, the two
-models were fitted with abundance data. A. Scatter plot of the residual
-correlations estimated by the whole community model as a function of the
-residual correlations estimated by the benchmark model. B. Distribution
-of the index mesuring the change of sign and magnitude between residual
-correlations estimated by the Whole community model and the Benchmark
-model adjusted with abundance data.}\label{fig:fig5}
+\caption{(A) Comparison of residual correlations associated with the
+three random effects estimated by the Whole Community Model (y-axis) and
+the Benchmark model (x-axis) fitted on abundance data. The colour scale
+highlights the density of points in each scatter plot. (B) Distribution
+of the index measuring change in sign (sign change left to the zero
+line, no change to the right) and magnitude (higher departure from the
+zero line indicate higher difference) between residual correlations
+estimated by the whole community model and the benchmark model adjusted
+with abundance data for the three random effects (Habitat, Site,
+Year).}\label{fig:fig5}
 }
 \end{figure}
 
-Our index also qualitatively identifies the residual correlations that
-have changed the most between the \emph{Bench} and \emph{WhC} models.
-For abundance or occurrence-based models (\cref{fig:fig5} and Figure
-S11), the mode of our index is close to zero, confirming the agreement
-between the residual correlations obtained from the two models
-(\cref{fig:fig5} and Figure S11). Still, our index identifies another
-mode toward negative values, indicating that the sign of some
-correlation coefficients have switched from positive to negative. For
-abundance-based models, the random effects Habitat, Site and Year have
-respectively 13.3\%, 17.7\% and 6\% of their correlation coefficients
-that changed sign between the \emph{Bench} model and the \emph{WhC}
-model. Similar results were obtained for occurrence-based models.
+The dedicated comparison index helps qualify how pairwise
+species-species residual correlations change in sign and magnitude
+between the Bench and the WhC models. For abundance- or presence/absence
+models (\cref{fig:fig5} and Fig. S11), the index main modal
+distribution, which is centred on zero, suggests an overall agreement
+between residual correlations obtained from both models (\cref{fig:fig5}
+and Fig. S11). While the right part of the distribution highlights
+variation in the estimated magnitude of effect, on the left-hand part of
+the distribution (negative values) indicates a sign inconsistency in
+residual correlations between the two models. For abundance models, the
+Habitat, Site and Year random effects are respectively associated with
+13.3\%, 17.7\% and 6\% of sign inconsistencies in residual correlations
+between the Bench model and the WhC model. Similar results were obtained
+for presence/absence models.
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
 
-It is the norm in ecological case studies to rely on partial data either
-in terms of spatio-temporal resolution of monitoring data
-(\protect\hyperlink{ref-Pollock_2020}{Pollock \emph{et al.} 2020}), or
-in terms of available information related to target species groups
-(e.g.~traits, phylogeny; Troudet \emph{et al.}
+Case studies in community ecology typically rely on partial and
+heterogeneous observations (\protect\hyperlink{ref-Pollock_2020}{Pollock
+\emph{et al.} 2020}) but also on incomplete knowledge of target species
+ecological features (e.g.~traits, phylogeny; Troudet \emph{et al.}
 (\protect\hyperlink{ref-Troudet_2017}{2017})). In this paper we aimed to
-better understand how the performance of jSDM varies depending on its
-architecture, and the sources of information considered. jSDMs have two
-main goals: explaining and predicting species distribution and community
-composition across space and/or time
-(\protect\hyperlink{ref-Tredennick_2021}{Tredennick \emph{et al.}
-2021}). To date, jSDMs have mostly been tested with regards to their
+better understand how jSDM performance varies depending on the type of
+information included (i.e.~phylogeny, traits or data on non-target
+species). While jSDMs have two main goals, i.e.~explaining and
+predicting species distribution and community composition across space
+and/or time (\protect\hyperlink{ref-Tredennick_2021}{Tredennick \emph{et
+al.} 2021}), to date, they have mostly been tested with regards to their
 predictive power (\protect\hyperlink{ref-Norberg_2019}{Norberg \emph{et
 al.} 2019}), and to some extent in terms of parameter estimates
 (\protect\hyperlink{ref-Wilkinson_2020}{Wilkinson \emph{et al.} 2020}),
-but only when fitted on presence-absence data
+but only when fitted on presence/absence data
 (\protect\hyperlink{ref-Norberg_2019}{Norberg \emph{et al.} 2019} ;
 \protect\hyperlink{ref-Wilkinson_2020}{Wilkinson \emph{et al.} 2020}).
 Yet, jSDMs are increasingly fitted on abundance data (e.g. Brimacombe
 \emph{et al.} (\protect\hyperlink{ref-Brimacombe_2020}{2020})) and used
-for explanatory purposes (\protect\hyperlink{ref-Hakkila_2018}{Häkkilä
-\emph{et al.} 2018} ; \protect\hyperlink{ref-Abrego_2016}{Abrego
-\emph{et al.} 2017}). Hence, there is currently a mismatch between the
+for explanatory purposes (\protect\hyperlink{ref-Abrego_2016}{Abrego
+\emph{et al.} 2017}; \protect\hyperlink{ref-Hakkila_2018}{Häkkilä
+\emph{et al.} 2018}). Hence, there is currently a mismatch between the
 knowledge we have regarding the performance of jSDMs and their
-application by ecologists. Here, we bridged both worlds using
-complementary metrics and evaluation methods. Overall, we showed that
-the structure of the model and the sources of information considered do
-impact models' performance in many regards (e.g.~predictive power,
-parameter estimates, estimated response curves, community composition).
-These changes can have significant consequences on the interpretability
-and the conclusions drawn from these models, especially for ecosystem
+application by ecologists. Here, we consolidate the current
+understanding of jSDMs performance using complementary metrics and
+evaluation methods. Overall, our results highlight that changes in model
+structure depending on the type of information considered do impact many
+aspects of model performances (e.g.~predictive power, parameter
+estimates, estimated response curves, community composition). These
+changes can have significant consequences on the interpretability and
+the conclusions drawn from these models, especially for ecosystem
 management policies.
 
-We found that jSDM's performance increased when adding information on
-the 179 accompanying species that were sampled together with the 99
-polychaete species of interest. Specifically, the predictive power of
-abundance-based models was considerably improved. This improvement is
-likely related to the hierarchical structure of HMSC
-(\protect\hyperlink{ref-Poggiato_2021}{Poggiato \emph{et al.} 2021})
-where accompanying species can improve model performance by capturing a
-combination of ``signals'' operating at a scale relevant for the target
-community, and that can be related to the environment, to biotic
-interactions, or to any other factors (e.g.~traits or and evolutionary
-processes) that can help better describe the realised niche of the
-species (\protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et
-al.} 2017b}). These ``signals'' are captured by the latent residual
-correlation matrix that was the feature that made jSDMs so popular at
-first glance owing to its potential to be used as an indicator for
-biotic interactions between species. Yet, it is now well-established
-that the potential biotic signal captured by jSDMs is confounded by
-other factors including a mismatch between the size of the studied
-organisms and the environmental variables
-(\protect\hyperlink{ref-Potter_2013}{Potter \emph{et al.} 2013}), a too
-coarse spatial resolution (\protect\hyperlink{ref-Zurell_2018}{Zurell
-\emph{et al.} 2018} ; \protect\hyperlink{ref-Konig_2021}{König \emph{et
-al.} 2021}), or missing environmental variables
+We found that jSDM's performance, in particular predictive power of
+abundance models, most increased when including information related to
+the 179 non-target species sampled alongside with the 99 polychaete
+species of interest. Given the hierarchical structure of HMSC
+(\protect\hyperlink{ref-Poggiato_2021}{Poggiato \emph{et al.} 2021}),
+inclusion of additional monitoring data related to other species likely
+improves model performance by capturing a combination of relevant
+drivers that influence the target assemblage but that are not explicitly
+considered in the model. For instance, inclusion of monitoring data for
+other species can help describe the realised niche of the species of
+interest by capturing important ecological processes related to
+environmental conditions (including trait-mediated responses) or biotic
+interactions that are not well captured when considering only the target
+assemblage (\protect\hyperlink{ref-Ovaskainen_2017b}{Ovaskainen \emph{et
+al.} 2017a}). In jSDMs, these unquantified ecological processes can be
+estimated using latent variables from model residual correlation matrix.
+While this feature of jSDMs originally yielded the potential to capture
+biotic interactions, it is now well-established that potential biotic
+signals captured by jSDMs are largely confounded by other factors. These
+include missing environmental variables
 (\protect\hyperlink{ref-Dormann_2018}{Dormann \emph{et al.} 2018} ;
 \protect\hyperlink{ref-Zurell_2018}{Zurell \emph{et al.} 2018} ;
-\protect\hyperlink{ref-Blanchet_2020}{Blanchet \emph{et al.} 2020}).
-Importantly, while including accompanying species improved predictive
+\protect\hyperlink{ref-Blanchet_2020}{Blanchet \emph{et al.} 2020}),
+scale mismatch between study organism responses and available
+environmental variables (\protect\hyperlink{ref-Potter_2013}{Potter
+\emph{et al.} 2013}), coarse spatial resolution of environmental
+variables (\protect\hyperlink{ref-Zurell_2018}{Zurell \emph{et al.}
+2018} ; \protect\hyperlink{ref-Konig_2021}{König \emph{et al.} 2021}).
+
+Importantly, while including non-target species improved predictive
 performance in our case study, this does not mean that accounting for
-accompanying species is always beneficial. These benefits could indeed
-vary depending on the quality of the data for accompanying species
-(e.g.~detection issues), their role within the ecosystem (e.g.~the case
-of engineer species having a strong influence on local communities) or
-the target community considered (e.g.~when the target community is
-mostly under the influence of abiotic factors, then adding other species
-should not have a large influence on model's performance). In practice,
-most studies focus on a certain guild or taxonomic group (e.g.~fish,
-birds) for data collection and/or availability reasons rather than for
-ecological reasons (availability of traits or phylogeny, consistent
-sampling methodology). Similarly, our choice to focus on polychaetes was
-primarily guided by data availability (trait were available from Boyé
-\emph{et al.} (\protect\hyperlink{ref-Boye_2019a}{2019})), although this
-is a group characterised by high diversity in terms of lifestyle and
-functional role (\protect\hyperlink{ref-Jumars_2015}{Jumars \emph{et
-al.} 2015} ; \protect\hyperlink{ref-Giangrande_1997}{Giangrande 1997}).
-Hence, most studies typically disregard the role of accompanying
-species, which may bias model estimation and predictive power according
-to our results. Further studies, considering a gradual increase in the
-number of accompanying species, while also potentially accounting for
-their trophic role or position, would help better understand the effect
-of non-focal species on jSDM's performance. While communities and
-assemblages remain largely defined based on arbitrary choices
-(\protect\hyperlink{ref-Stroud_2015}{Stroud \emph{et al.} 2015}), such
-sensitivity analysis could lead to a more objective delineation of the
-appropriate ecological units to be studied (i.e.~which species are
-necessary to improve model performance? Which group can be studied in
-isolation?).
+non-target species is always beneficial. These benefits could indeed
+vary depending on robustness of non-target species monitoring data
+(e.g.~detection issues), their role within the ecosystem (e.g.~engineer
+species are likely more influential on local communities than rare
+transient species) or the process shaping the target assemblage
+(e.g.~when the target assemblage is mostly under the influence of
+abiotic factors, then adding other species will have limited influence
+on model performance). Furthermore, how many non-target species should
+be included warrants further investigations. In the future, simulated
+datasets, overcoming limitations related to real world datasets
+(\protect\hyperlink{ref-DiRenzo_2022}{DiRenzo \emph{et al.} 2022}),
+could be used to more systematically assess how and to which extent jSDM
+performance is affected when increasing the number of non-target species
+and whether the functional or the trophic position of these species
+matters in this context. While species communities and assemblages are
+largely defined arbitrarily (\protect\hyperlink{ref-Stroud_2015}{Stroud
+\emph{et al.} 2015}), such sensitivity analysis could help delineate
+which ecological units to include (or not) to improve model performance
+for the species of management/conservation interests.
+
+In practice, ecological studies often focus on a certain guild or
+taxonomic group (e.g.~fish, birds) given data collection (consistent
+sampling methodology) or availability constraints (traits and/or
+phylogeny biased toward some taxonomic groups, Tyler \emph{et al.}
+(\protect\hyperlink{ref-Tyler_2012}{2012}) and usually centralised in
+taxonomic-centred repositories {[}e.g.~FishBase; Froese \& Pauly
+(\protect\hyperlink{ref-Froese_2022}{2022}){]}), rather than for
+ecological reasons (e.g.~all potential interactions well captured by the
+data at hand). In this study, dedicated focus on polychaetes was
+primarily guided by data availability (species-traits matrices available
+from Boyé \emph{et al.} (\protect\hyperlink{ref-Boye_2019a}{2019}) only
+included polychaetes) rather than for ecological reasons, although the
+fact that this taxonomic group is numerically dominant and highly
+diverse in terms of lifestyles and functional roles
+(\protect\hyperlink{ref-Giangrande_1997}{Giangrande 1997} ;
+\protect\hyperlink{ref-Jumars_2015}{Jumars \emph{et al.} 2015}) was the
+reason that originally motivated trait-data collection.
 
 jSDMs have already been used to model the distribution of a wide variety
 of species ranging from micro-organisms
@@ -923,139 +987,109 @@ of species ranging from micro-organisms
 megafauna (\protect\hyperlink{ref-Rocha_2017}{Rocha \emph{et al.} 2017}
 ; \protect\hyperlink{ref-Brimacombe_2020}{Brimacombe \emph{et al.}
 2020}) inhabiting many different ecosystems. Here, while we studied
-communities associated with two typical coastal habitats, i.e.~seagrass
+communities associated with two specific coastal habitats, i.e.~seagrass
 and sand, that have original characteristics as they are located at the
 land-sea interface (\protect\hyperlink{ref-Boye_2019a}{Boyé \emph{et
-al.} 2019}), our case study reflects typical aspects of data in
-ecological research such as data limitation and data availability but
-also typical aspects of the functioning and structure of communities
-(e.g.~prevalence of rare and transient species; Magurran \& Henderson
-(\protect\hyperlink{ref-Magurran_2003}{n.d.}) ; Snell Taylor \emph{et
-al.} (\protect\hyperlink{ref-SnellTaylor_2018}{2018})). Our results
-provide a few insights on trait-environment relationships but we suspect
-that trait data quality and availability remains limiting to fully
-exploit what functional ecology can bring to jSDMs
+al.} 2019}), our case study reflects typical aspects of applied
+ecological research. These include issues related to data limitation and
+availability but also typical features of ecological communities
+(e.g.~prevalence of rare and transient species;
+(\protect\hyperlink{ref-Magurran_2003}{Magurran \& Henderson 2003} ;
+\protect\hyperlink{ref-SnellTaylor_2018}{Snell Taylor \emph{et al.}
+2018})). Our results provide some insights on trait-environment
+relationships but these contributions of functional ecology in jSDMs are
+likely limited by trait data quality and availability
 (\protect\hyperlink{ref-Tyler_2012}{Tyler \emph{et al.} 2012} ;
 \protect\hyperlink{ref-deJuan_2022}{Juan \emph{et al.} 2022}). For
 instance, we found an interaction between trophic modalities
-(i.e.~microphagous versus macrophagous diet) and fetch (Fig. S15), which
-indicates that organisms that filter on small particles are less likely
+(i.e.~microphagous versus macrophagous diet) and fetch (Fig. S15),
+indicating that organisms that filter on small particles are less likely
 to occur in wave-exposed sites where high levels of sediment
 resuspension can block their filtering systems
-(\protect\hyperlink{ref-Manning_2014}{LM \emph{et al.} 2014});
-conversely macrophagous organisms are less impacted by fetch. Yet, most
+(\protect\hyperlink{ref-Manning_2014}{Manning \emph{et al.} 2014}).
+Conversely macrophagous organisms are less impacted by fetch. Yet, most
 trait-environment relationships, and most species-environment
-relationships were flat; a result that could reflect a symptom of the
-functioning of the system, where neutral processes are expected to
-dominate (e.g.~in seagrass bed communities, Boyé \emph{et al.}
-(\protect\hyperlink{ref-Boye_2019a}{2019})). However, the lack of
-contribution of other trait-environment relationships in our model could
-also be related to a mismatch between trait data, environmental data,
-and the ecological processes at play. For instance, the physical coastal
-environment is highly dynamic; a feature that is only partially
-characterised by our environmental variables that summarise average
-climatological conditions (but not extreme events or annual/seasonal
-variability). Likewise, the list of available fuzzy-coded traits only
-partially captures species capacity to adapt to frequent disturbances or
-environmental variability (\protect\hyperlink{ref-Violle_2012}{Violle
-\emph{et al.} 2012} ; \protect\hyperlink{ref-deJuan_2022}{Juan \emph{et
-al.} 2022}). Most studies will face the same trade-off between the
-potential benefit of including traits within jSDMs and the effort needed
-to collect relevant information. In our case, while including traits did
-not improve the model's predictive power, it provides knowledge that is
-useful to understand the response of species along environmental
-gradients, and set-up management strategies. Hence, if the goal is not
-prediction but inference
-(\protect\hyperlink{ref-Tredennick_2021}{Tredennick \emph{et al.}
-2021}), including traits and proxies of phylogeny might still be useful
-to interpret the models, provided that explanatory power is not affected
-(as in our case), and that computation time is not too cumbersome given
-the added parameters.
+relationships were flat suggesting that polychaete assemblages are
+driven by processes other than abiotic ones, including neutral processes
+(\protect\hyperlink{ref-Boye_2019a}{Boyé \emph{et al.} 2019}). However,
+the lack of contribution of other trait-environment relationships in our
+model could also be related to a mismatch between trait data,
+environmental data, and the ecological processes at play
+(\protect\hyperlink{ref-deJuan_2022}{Juan \emph{et al.} 2022}). For
+instance, the physical coastal environment is highly dynamic; a feature
+that is only partially characterised by our environmental variables that
+summarise average climatological conditions (but not extreme events or
+annual/seasonal variability). Likewise, the list of available
+fuzzy-coded traits only partially captures species capacity to adapt to
+frequent disturbances or environmental variability
+(\protect\hyperlink{ref-Violle_2012}{Violle \emph{et al.} 2012} ;
+\protect\hyperlink{ref-deJuan_2022}{Juan \emph{et al.} 2022}). Most
+ecological studies are likely to face similar trade-offs where the
+potential benefit of including traits within jSDMs is balanced out by
+the effort needed to collect relevant trait information when missing. In
+our case, while inclu=sding traits does not improve model predictive
+power, it enhances our understanding of species responses along
+environmental gradients. Hence, if the goal is not prediction but
+inference (\protect\hyperlink{ref-Tredennick_2021}{Tredennick \emph{et
+al.} 2021}), including traits and proxies of phylogeny can facilitate
+model interpretation, providing that explanatory power does not decrease
+(as in our case), and that additional model parameters do not make
+computation time impractical.
 
-Understanding the behaviour of increasingly complex models from a
-mathematical and ecological point of view is one of the major challenges
-currently facing numerical ecology and one active research area
-(\protect\hyperlink{ref-Lucas_2020}{Lucas 2020} ;
-\protect\hyperlink{ref-Ryo_2021}{Ryo \emph{et al.} 2021}). jSDMs can be
-particularly difficult to interpret because the number of parameters
-drastically increases with the size of the community (the curse of
-dimensionality; Tikhonov \emph{et al.}
-(\protect\hyperlink{ref-Tikhonov_2017}{2017})). Combined with the use of
-latent variables, auditing this type of model is very complex, and
-requires a diverse set of metrics
+While guidelines have been developed to characterise the performance of
+jSDM fitted on presence-absence data
 (\protect\hyperlink{ref-Wilkinson_2020}{Wilkinson \emph{et al.} 2020}),
-notably to understand what is hidden in the signal captured by the
-residual correlations between species. While guidelines have been
-developed to characterise the performance of jSDM fitted on occurrence
-data (\protect\hyperlink{ref-Wilkinson_2020}{Wilkinson \emph{et al.}
-2020}), it is only recently that the predictive power of abundance-based
-models has been explored Waldock \emph{et al.}
-(\protect\hyperlink{ref-Waldock_2022}{2022}). Here, we used a set of
-complementary metrics to assess the performance of both occurrence- and
-abundance-based models at the species and community levels, the latter
-considering both alpha and beta diversity. We also transposed a method
-initially developed for time series
-(\protect\hyperlink{ref-Rigal_2020}{Rigal \emph{et al.} 2020}) to
+it is only recently that the predictive power of abundance-based models
+has been explored (\protect\hyperlink{ref-Waldock_2022}{Waldock \emph{et
+al.} 2022}). Here, we used a set of complementary metrics to assess the
+performance of both presence-absence and abundance models at the species
+and community levels, the latter considering both alpha and beta
+diversity. We also transposed a method initially developed for time
+series (\protect\hyperlink{ref-Rigal_2020}{Rigal \emph{et al.} 2020}) to
 provide an innovative way of characterising the response curves of each
 species. Further, we bring together a set of approaches and propose a
-new index to characterise and compare residual correlations networks.
-Overall, we provide a comprehensive framework ultimately allowing for an
-integrative assessment and comparison of jSDM performance.
+new index to characterise and compare residual correlation matrices.
+Overall, we provide a comprehensive framework for integrative assessment
+and comparison of alternative jSDM performance.
 
-As our models performed equally well in terms of explanatory power, it
-is important to ask whether and to which extent adding extra information
-is beneficial to jSDM models. Adding accompanying species has two main
-benefits : increasing predictive power and clarifying
-species-environment relationships. For the former, while the predictive
-power was improved by taking the whole community into account, the gain
-remained small. Hence, if the objective is prediction, machine learning
-or neural networks applied to community data may provide an interesting
-alternative to jSDM (\protect\hyperlink{ref-Zhang_2020}{Zhang \emph{et
-al.} 2020} ; \protect\hyperlink{ref-Deneu_2021}{Deneu \emph{et al.}
-2021}). Still, jSDMs provide an interesting compromise between
-predictive power and interpretability
-(\protect\hyperlink{ref-Norberg_2019}{Norberg \emph{et al.} 2019} ;
-\protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et al.}
-2017b}) and adding accompanying species could prove a useful strategy
-for informing conservation through community models
-(\protect\hyperlink{ref-Pollock_2020}{Pollock \emph{et al.} 2020}). For
-the latter, adding accompanying species helped clarify and remove
-spurious species-environment relationships (many switching from
-non-linear responses to flat ones). Nonetheless, it is important to keep
-in mind that the more species you add, the more weight they have in the
-likelihood and therefore on the estimated species-environment
-relationships. Thus if the purpose is inference, adding more species may
-not be the best strategy. Adding trait information or phylogeny seems
-more appropriate as it leads to more interpretable models. Overall, our
-results provide new insights into the most appropriate strategies for
-jSDM fitting, according to the objective of the modelling exercise
-(\protect\hyperlink{ref-Troudet_2017}{Troudet \emph{et al.} 2017}) and
-the data at hand. Future work could expand on other ecosystems
-presenting different characteristics (e.g., with stronger environmental
-filters or competitive processes) or use simulations
-(\protect\hyperlink{ref-Zurell_2010}{Zurell \emph{et al.} 2010}) to
-confirm the generality of our findings.
+Overall, our results provide new insights into the most appropriate
+strategies for jSDM fitting, according to the objective of the modelling
+exercise (\protect\hyperlink{ref-Troudet_2017}{Troudet \emph{et al.}
+2017}) and the data at hand. While the four considered models performed
+equally well in terms of explanatory power, adding extra information to
+traditional jSDM (i.e.~that only consider abiotic predictors) can still
+prove useful in some cases. For instance, adding monitoring data for
+other non-target species can substantially increase model predictive
+power by modifying inferred species-environment relationships and
+residual correlation matrices. Similarly, adding traits or phylogeny can
+lead to better model interpretability. To confirm the generality of our
+findings, future studies should focus on ecosystems that display
+different characteristics such as stronger environmental filtering or
+competitive processes; or by resorting to simulated case studies
+(\protect\hyperlink{ref-Zurell_2010}{Zurell \emph{et al.} 2010} ;
+\protect\hyperlink{ref-DiRenzo_2022}{DiRenzo \emph{et al.} 2022}).
 
 \hypertarget{author-contributions}{%
 \subsection{Author Contributions}\label{author-contributions}}
 
-All authors conceived thes ideas and Violet, Boyé, Chevalier and
-Marzloff designed the methodology; Boyé, Grall and Gauthier provided the
-data; Violet analysed the data; Violet, Boyé, Chevalier and Marzloff led
-the writing of the manuscript. All authors contributed critically to the
-drafts and gave final approval for publication.
+MPM conveived the original idea with imputs from CV, AB, MC. CV analysed
+the data and wrote the first draft of the manuscript. All authors
+provided critical comments on earlier version of the manuscript and ave
+final approval for publication.
 
 \hypertarget{acknowledgment}{%
 \subsection{Acknowledgment}\label{acknowledgment}}
 
-The authors acknowledge the Pôle de Calcul et de Données Marines (PCDM)
-for providing DATARMOR storage and computational resources.
-\url{https://pcdm.ifremer.fr}
-
-\hypertarget{conflict-of-interest}{%
-\subsection{Conflict of interest}\label{conflict-of-interest}}
-
-The authors declare no conflict of interest.
+The authors are very grateful to Marion Maguer and Vincet Le Garrec who
+conducted the fieldwork and laboratory analysis that made this study
+possible, as well as to all students, technicians, engineers and
+Ph.D.~that have been involved in this long-term effort. This study was
+supported by the REBENT programme coordinated by Sandrine Derrien (MNHN)
+and its funding partners (Agence de l'eau Loire-Bretagne, Région
+Bretagne, DREAL Bretagne). The authors would also like to acknowledge
+the Pôle de Calcul et de Données Marines (PCDM) for providing DATARMOR
+storage and computational resources. \url{https://pcdm.ifremer.fr}. MPM
+is the recipient of an ANR early career grant ANR-21-CE02-0006.
 
 \hypertarget{references}{%
 \section*{References}\label{references}}
@@ -1086,11 +1120,12 @@ Blanchet, F.G., Cazelles, K. \& Gravel, D. (2020).
 \href{https://doi.org/10.1111/ele.13525}{Co-occurrence is not evidence
 of ecological interactions}. \emph{Ecology Letters}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-Boye_2019b}{}}%
-Boyé, A. (2019). Diversité taxinomique et fonctionnelle des habitats
-benthiques dans l'espace et dans le temps: une perspective régionale et
-décennale. thèse de doctorat. Université de Bretagne Occidentale,
-Université de Montréal.
+\leavevmode\vadjust pre{\hypertarget{ref-Boye_2022}{}}%
+Boyé, A., Gauthier, O., Becheler, R., Le Garrec, V., Hily, C., Maguer,
+M., \emph{et al.} (2022).
+\href{https://doi.org/10.1111/1365-2745.13791}{Drivers and limits of
+phenotypic responses in vulnerable seagrass populations: Zostera marina
+in the intertidal}. \emph{Journal of Ecology}, 110, 144--161.
 
 \leavevmode\vadjust pre{\hypertarget{ref-Boye_2017}{}}%
 Boyé, A., Legendre, P., Grall, J. \& Gauthier, O. (2017).
@@ -1127,18 +1162,18 @@ Chiquet, J., Mariadassou, M. \& Robin, S. (2021).
 Model as a Versatile Framework for the Joint Analysis of Species
 Abundances}. \emph{Frontiers in Ecology and Evolution}, 9.
 
-\leavevmode\vadjust pre{\hypertarget{ref-Deneu_2021}{}}%
-Deneu, B., Servajean, M., Bonnet, P., Botella, C., Munoz, F. \& Joly, A.
-(2021). Convolutional neural networks improve species distribution
-modelling by capturing the spatial structure of the environment.
-\emph{PLoS Computational Biology}.
-
 \leavevmode\vadjust pre{\hypertarget{ref-Dietze_2018}{}}%
 Dietze, M.C., Fox, A., Beck-Johnson, L.M., Betancourt, J.L., Hooten,
 M.B., Jarnevich, C.S., \emph{et al.} (2018).
 \href{https://doi.org/10.1073/pnas.1710231115}{Iterative near-term
 ecological forecasting: Needs, opportunities, and challenges}.
 \emph{Proceedings of the National Academy of Sciences}, 115, 1424--1432.
+
+\leavevmode\vadjust pre{\hypertarget{ref-DiRenzo_2022}{}}%
+DiRenzo, G.V., Hanks, E. \& Miller, D.A.W. (2022).
+\href{https://doi.org/10.1111/2041-210X.14030}{A practical guide to
+understanding and validating complex models using data simulations}.
+\emph{Methods in Ecology and Evolution}, n/a.
 
 \leavevmode\vadjust pre{\hypertarget{ref-Dormann_2018}{}}%
 Dormann, C.F., Bobrowski, M., Dehling, D.M., Harris, D.J., Hartig, F.,
@@ -1148,17 +1183,16 @@ distribution modelling: 10 questions to guide interpretation and avoid
 false conclusions}. \emph{Global Ecology and Biogeography}, 27,
 1004--1016.
 
-\leavevmode\vadjust pre{\hypertarget{ref-Dunn_1964}{}}%
-Dunn, O.J. (1964).
-\href{https://doi.org/10.1080/00401706.1964.10490181}{Multiple
-Comparisons Using Rank Sums}. \emph{Technometrics}, 6, 241--252.
-
 \leavevmode\vadjust pre{\hypertarget{ref-Elith_2006}{}}%
 Elith, J., H. Graham, C., P. Anderson, R., Dudı́k, M., Ferrier, S.,
 Guisan, A., \emph{et al.} (2006).
 \href{https://doi.org/10.1111/j.2006.0906-7590.04596.x}{Novel methods
 improve prediction of species' distributions from occurrence data}.
 \emph{Ecography}, 29, 129--151.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Froese_2022}{}}%
+Froese, R. \& Pauly, D. (2022).
+\href{https://www.fishbase.org}{FishBase}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-Gelman_2020}{}}%
 Gelman, A., Hill, J. \& Vehtari, A. (2020).
@@ -1269,23 +1303,18 @@ Levine, J.M., Bascompte, J., Adler, P.B. \& Allesina, S. (2017).
 \href{https://doi.org/10.1038/nature22898}{Beyond pairwise mechanisms of
 species coexistence in complex communities}. \emph{Nature}, 546, 56--64.
 
+\leavevmode\vadjust pre{\hypertarget{ref-Magurran_2003}{}}%
+Magurran, A.E. \& Henderson, P.A. (2003).
+\href{https://doi.org/10.1038/nature01547}{Explaining the excess of rare
+species in natural species abundance distributions}. \emph{Nature}, 422,
+714--716.
+
 \leavevmode\vadjust pre{\hypertarget{ref-Manning_2014}{}}%
-LM, M., CH, P. \& MJ, B. (2014).
+Manning, L.M., Peterson, C.H. \& Bishop, M.J. (2014).
 \href{https://www.int-res.com/abstracts/meps/v508/p1-15/}{Dominant
 macrobenthic populations experience sustained impacts from annual
 disposal of fine sediments on sandy beaches}. \emph{Marine Ecology
 Progress Series}, 508, 1--15.
-
-\leavevmode\vadjust pre{\hypertarget{ref-Lucas_2020}{}}%
-Lucas, T.C.D. (2020). \href{https://doi.org/10.1002/ecm.1422}{A
-translucent box: interpretable machine learning in ecology}.
-\emph{Ecological Monographs}, 90, e01422.
-
-\leavevmode\vadjust pre{\hypertarget{ref-Magurran_2003}{}}%
-Magurran, A.E. \& Henderson, P.A. (n.d.).
-\href{https://doi.org/10.1038/nature01547}{Explaining the excess of rare
-species in natural species abundance distributions}. \emph{Nature}, 422,
-714--716.
 
 \leavevmode\vadjust pre{\hypertarget{ref-Minard_2019}{}}%
 Minard, G., Tikhonov, G., Ovaskainen, O. \& Saastamoinen, M. (2019).
@@ -1418,12 +1447,6 @@ evaluation of the impact of small man-made forest clearings on tropical
 bats using a before-after-control-impact design}. \emph{Forest Ecology
 and Management}, 401, 8--16.
 
-\leavevmode\vadjust pre{\hypertarget{ref-Ryo_2021}{}}%
-Ryo, M., Angelov, B., Mammola, S., Kass, J.M., Benito, B.M. \& Hartig,
-F. (2021). \href{https://doi.org/10.1111/ecog.05360}{Explainable
-artificial intelligence enhances the ecological interpretability of
-black-box species distribution models}. \emph{Ecography}, 44, 199--205.
-
 \leavevmode\vadjust pre{\hypertarget{ref-Sander_2017}{}}%
 Sander, E.L., Wootton, J.T. \& Allesina, S. (2017).
 \href{https://doi.org/10.1038/s41598-017-07009-x}{Ecological Network
@@ -1455,17 +1478,15 @@ Pavoine, S. (2018).
 \emph{\href{https://doi.org/10.1007/978-1-4939-8850-1}{Multivariate
 Analysis of Ecological Data with ade4}}. Springer.
 
-\leavevmode\vadjust pre{\hypertarget{ref-Tikhonov_2017}{}}%
-Tikhonov, G., Abrego, N., Dunson, D. \& Ovaskainen, O. (2017).
-\href{https://doi.org/10.1111/2041-210X.12723}{Using joint species
-distribution models for evaluating how species-to-species associations
-depend on the environmental context}. \emph{Methods in Ecology and
-Evolution}, 8, 443--452.
-
 \leavevmode\vadjust pre{\hypertarget{ref-Tikhonov_2019b}{}}%
 Tikhonov, G., Opedal, O., Abrego, N., Lehikoinen, A. \& Ovaskainen, O.
 (2019). \href{https://doi.org/10.1101/603217}{Joint species distribution
 modelling with HMSC-R}. \emph{bioRxiv}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Toumi_nd}{}}%
+Toumi Chirine, G.J., De Cáceres Miquel. (n.d.). Long-term coastal
+macrobenthic Community Trajectory Analysis reveals habitat-dependent
+stability patterns. \emph{Ecography}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-Tredennick_2021}{}}%
 Tredennick, A.T., Hooker, G., Ellner, S.P. \& Adler, P.B. (2021).
@@ -1506,6 +1527,13 @@ G.J., Mouillot, D., \emph{et al.} (2022).
 \href{https://doi.org/10.1111/ecog.05694}{A quantitative review of
 abundance-based species distribution models}. \emph{Ecography}, 2022.
 
+\leavevmode\vadjust pre{\hypertarget{ref-Warton_2015}{}}%
+Warton, D.I., Blanchet, F.G., O'Hara, R.B., Ovaskainen, O., Taskinen,
+S., Walker, S.C., \emph{et al.} (2015).
+\href{https://doi.org/10.1016/j.tree.2015.09.007}{So many variables:
+joint modeling in community ecology}. \emph{Trends in Ecology \&
+Evolution}, 30, 766--779.
+
 \leavevmode\vadjust pre{\hypertarget{ref-Whittaker_2001}{}}%
 Whittaker, R.J., Willis, K.J. \& Field, R. (2001).
 \href{https://doi.org/10.1046/j.1365-2699.2001.00563.x}{Scale and
@@ -1530,12 +1558,6 @@ McCarthy, M.A. (2020).
 \href{https://doi.org/10.1111/2041-210X.13518}{Defining and evaluating
 predictions of joint species distribution models}. \emph{Methods in
 Ecology and Evolution}, n/a.
-
-\leavevmode\vadjust pre{\hypertarget{ref-Zhang_2020}{}}%
-Zhang, C., Chen, Y., Xu, B., Xue, Y. \& Ren, Y. (2020).
-\href{https://doi.org/10.1038/s41598-020-69157-x}{Improving prediction
-of rare species'distribution from community data}. \emph{Scientific
-Reports}, 10, 12230.
 
 \leavevmode\vadjust pre{\hypertarget{ref-Zurell_2010}{}}%
 Zurell, D., Berger, U., Cabral, J.S., Jeltsch, F., Meynard, C.N.,
