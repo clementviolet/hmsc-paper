@@ -5,8 +5,7 @@
     "classoption": [
         "biorxiv",
         "doublespacing",
-        "lineno",
-        "endfloat"
+        "lineno"
     ],
     "polyglossia-lang": {
         "name": "en-UK",
