@@ -159,7 +159,8 @@
                 bottom=2.5cm,%
                 headheight=21pt,%
                 headsep=2\baselineskip,%
-                columnsep=2em}\fi
+                columnsep=2em,%
+                letterpaper}\fi
 \RequirePackage[strict]{changepage} % strict for use with sidenotes
 \RequirePackage{silence}
 \WarningFilter{caption}{The option `hypcap=true' will be ignored}

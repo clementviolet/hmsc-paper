@@ -70,7 +70,7 @@
         "correspondanceEmail": "clement.violet@ifremer.fr",
         "adress": "IFREMER, Centre de Bretagne, DYNECO LEBCO, Plouzané 29280, France.",
         "dataAvailability": "",
-        "funding": "This work benefits from funding from IFREMER. MPM is the recipient of the early career ANR Grant #SDFSDFDSF",
+        "funding": "This work benefits from funding from IFREMER.",
         "competingInterest": "The authors declare no competing interests."
     },
     "affiliation": [
@@ -100,8 +100,5 @@
     ],
     "link-citations": true,
     "link-bibliography": true,
-    "fignos-plus-name": [
-        "Figure",
-        "Figures"
-    ]
+    "xnos-capitalise": true
 }

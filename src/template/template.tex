@@ -34,7 +34,6 @@
 \usepackage{tabularx}   % For making Knitr tables compatible
 \usepackage{longtable}  % For multi-page tables
 \usepackage{subcaption}
-\usepackage{cleveref} % For fig, table and equation numbering
 \usepackage{multirow}
 \usepackage{snotez}     % For sidenote environments. enotez for endnotes
 \usepackage{csquotes}   % For language-based quote rules (helps BiBLaTeX)
@@ -51,6 +50,10 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+$for(header-includes)$
+$header-includes$
+$endfor$
 
 %% pandoc-tablenos: required package
 \usepackage{caption}
@@ -158,6 +161,9 @@ $if(metadata.dataAvailability)$
 $endif$
 $if(metadata.competingInterest)$
 \metadata[]{Competing interests}{$metadata.competingInterest$}
+$endif$
+$if(metadata.funding)$
+\metadata[]{Funding}{$metadata.funding$}
 $endif$
 % \metadata[\authfn{1}\authfn{2}\authfn{3}]{}{Here's a few symbols to denote contribution specifics, e.g. authors who contributed equally to the work.}
 
