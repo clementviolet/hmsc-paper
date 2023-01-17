@@ -158,6 +158,9 @@ Plouzané 29280, France.}
 \metadata[]{Keywords}{Community assembly, Explanatory
 power, Interpretability, Joint Species Distribution Model, jSDM, Model
 Performances, Predictive power, Species Distribution Model}
+\metadata[]{Data availability}{The data associated with this manuscript
+will be available on the Zenedo platform before the publication of this
+manuscript, if it is accepted.}
 \metadata[]{Competing interests}{The authors declare no competing
 interests.}
 \metadata[]{Funding}{This work benefits from funding from IFREMER.}
@@ -519,7 +522,7 @@ third axis separates burrowers from tube-dwellers (Fig. S5).
 In complement to the traits information available for the 99 polychaete
 species of interest, we retrieved their taxonomic classification through
 the WoRMS database
-((\href{https://www.marinespecies.org}{www.marinespecies.org}; assessed
+(\href{https://www.marinespecies.org}{www.marinespecies.org}; assessed
 in january 2020) and used this information as a proxy for phylogenetic
 relationships (\cref{fig:workflow} ; Ricotta \emph{et al.}
 (\protect\hyperlink{ref-Ricotta_2012}{2012}) ; Ovaskainen \& Abrego
@@ -882,55 +885,50 @@ Case studies in community ecology typically rely on partial and
 heterogeneous observations (\protect\hyperlink{ref-Pollock_2020}{Pollock
 \emph{et al.} 2020}) but also on incomplete knowledge of target species
 ecological features (e.g.~traits, phylogeny; Troudet \emph{et al.}
-(\protect\hyperlink{ref-Troudet_2017}{2017})). In this paper we aimed to
-better understand how jSDM performance varies depending on the type of
+(\protect\hyperlink{ref-Troudet_2017}{2017})). In this paper we
+investigated how jSDM performance varies depending on the type of
 information included (i.e.~phylogeny, traits or data on non-target
 species). While jSDMs have two main goals, i.e.~explaining and
 predicting species distribution and community composition across space
 and/or time (\protect\hyperlink{ref-Tredennick_2021}{Tredennick \emph{et
-al.} 2021}), to date, they have mostly been tested with regards to their
+al.} 2021}), they have mostly been tested with regards to their
 predictive power (\protect\hyperlink{ref-Norberg_2019}{Norberg \emph{et
 al.} 2019}), and to some extent in terms of parameter estimates
 (\protect\hyperlink{ref-Wilkinson_2020}{Wilkinson \emph{et al.} 2020}),
 but only when fitted on presence/absence data
 (\protect\hyperlink{ref-Norberg_2019}{Norberg \emph{et al.} 2019} ;
 \protect\hyperlink{ref-Wilkinson_2020}{Wilkinson \emph{et al.} 2020}).
-Yet, jSDMs are increasingly fitted on abundance data (e.g. Brimacombe
-\emph{et al.} (\protect\hyperlink{ref-Brimacombe_2020}{2020})) and used
-for explanatory purposes (\protect\hyperlink{ref-Abrego_2016}{Abrego
-\emph{et al.} 2017}; \protect\hyperlink{ref-Hakkila_2018}{Häkkilä
-\emph{et al.} 2018}). Hence, there is currently a mismatch between the
-knowledge we have regarding the performance of jSDMs and their
-application by ecologists. Here, we consolidate the current
-understanding of jSDMs performance using complementary metrics and
-evaluation methods. Overall, our results highlight that changes in model
-structure depending on the type of information considered do impact many
-aspects of model performances (e.g.~predictive power, parameter
-estimates, estimated response curves, community composition). These
-changes can have significant consequences on the interpretability and
-the conclusions drawn from these models, especially for ecosystem
-management policies.
+Yet, jSDMs are increasingly fitted on abundance data
+(\protect\hyperlink{ref-Brimacombe_2020}{Brimacombe \emph{et al.} 2020})
+and for explanatory purposes (\protect\hyperlink{ref-Abrego_2016}{Abrego
+\emph{et al.} 2017} ; \protect\hyperlink{ref-Hakkila_2018}{Häkkilä
+\emph{et al.} 2018}). Hence, there is a mismatch between current
+understanding of jSDMs performance and their application by ecologists.
+Here, we consolidate the assessment of jSDMs performance using
+complementary metrics and evaluation methods. We characterise how
+different aspects of model performances vary with changes in model
+structure related to the type of information considered, which can
+affect interpretability and conclusions drawn from these models.
 
 We found that jSDM's performance, in particular predictive power of
 abundance models, most increased when including information related to
 the 179 non-target species sampled alongside with the 99 polychaete
-species of interest. Given the hierarchical structure of HMSC
+species of interest. Given HMSC hierarchical structure
 (\protect\hyperlink{ref-Poggiato_2021}{Poggiato \emph{et al.} 2021}),
-inclusion of additional monitoring data related to other species likely
-improves model performance by capturing a combination of relevant
-drivers that influence the target assemblage but that are not explicitly
-considered in the model. For instance, inclusion of monitoring data for
-other species can help describe the realised niche of the species of
-interest by capturing important ecological processes related to
+inclusion of monitoring data related to other species likely improves
+model performance for the target assemblage by capturing relevant
+drivers that are not explicitly considered. For instance, inclusion of
+monitoring data for other species can help describe target species'
+realised niche by accounting for ecological processes related to
 environmental conditions (including trait-mediated responses) or biotic
-interactions that are not well captured when considering only the target
-assemblage (\protect\hyperlink{ref-Ovaskainen_2017b}{Ovaskainen \emph{et
-al.} 2017a}). In jSDMs, these unquantified ecological processes can be
-estimated using latent variables from model residual correlation matrix.
-While this feature of jSDMs originally yielded the potential to capture
-biotic interactions, it is now well-established that potential biotic
-signals captured by jSDMs are largely confounded by other factors. These
-include missing environmental variables
+interactions that are not explicitly captured otherwise
+(\protect\hyperlink{ref-Ovaskainen_2017a}{Ovaskainen \emph{et al.}
+2017b}). In jSDMs, unquantified ecological processes can be estimated
+using latent variables from model residual correlation matrix. While
+this feature of jSDMs originally yielded the potential to capture biotic
+interactions, it is now well-established that potential biotic signals
+captured by jSDMs are largely confounded by other factors. These include
+missing environmental variables
 (\protect\hyperlink{ref-Dormann_2018}{Dormann \emph{et al.} 2018} ;
 \protect\hyperlink{ref-Zurell_2018}{Zurell \emph{et al.} 2018} ;
 \protect\hyperlink{ref-Blanchet_2020}{Blanchet \emph{et al.} 2020}),
@@ -941,26 +939,24 @@ variables (\protect\hyperlink{ref-Zurell_2018}{Zurell \emph{et al.}
 2018} ; \protect\hyperlink{ref-Konig_2021}{König \emph{et al.} 2021}).
 
 Importantly, while including non-target species improved predictive
-performance in our case study, this does not mean that accounting for
-non-target species is always beneficial. These benefits could indeed
-vary depending on robustness of non-target species monitoring data
-(e.g.~detection issues), their role within the ecosystem (e.g.~engineer
-species are likely more influential on local communities than rare
-transient species) or the process shaping the target assemblage
-(e.g.~when the target assemblage is mostly under the influence of
-abiotic factors, then adding other species will have limited influence
-on model performance). Furthermore, how many non-target species should
-be included warrants further investigations. In the future, simulated
-datasets, overcoming limitations related to real world datasets
-(\protect\hyperlink{ref-DiRenzo_2022}{DiRenzo \emph{et al.} 2022}),
-could be used to more systematically assess how and to which extent jSDM
-performance is affected when increasing the number of non-target species
-and whether the functional or the trophic position of these species
-matters in this context. While species communities and assemblages are
-largely defined arbitrarily (\protect\hyperlink{ref-Stroud_2015}{Stroud
-\emph{et al.} 2015}), such sensitivity analysis could help delineate
-which ecological units to include (or not) to improve model performance
-for the species of management/conservation interests.
+performance in our case study, benefits of accounting for non-target
+species might vary depending on robustness of non-target species
+monitoring data (e.g.~detection issues), their role within the ecosystem
+(e.g.~engineer species are likely more influential on local communities
+than rare transient species), or processes shaping the target assemblage
+(if influence of abiotic factors dominates, then adding other species
+will have marginal consequences on model performance). Furthermore, a
+specific investigation would be required to determine the optimal number
+of non-target species to include : for instance using simulated datasets
+to overcome limitations related to real world datasets
+(\protect\hyperlink{ref-DiRenzo_2022}{DiRenzo \emph{et al.} 2022}).
+While species communities and assemblages are largely defined
+arbitrarily (\protect\hyperlink{ref-Stroud_2015}{Stroud \emph{et al.}
+2015}), A systematic assessment of jSDM performance as increasing number
+of non-target species, across different functional or trophic roles
+would be valuable to delineate which ecological units to include (or
+not) to improve model performance for the species of
+management/conservation interests.
 
 In practice, ecological studies often focus on a certain guild or
 taxonomic group (e.g.~fish, birds) given data collection (consistent
@@ -976,9 +972,9 @@ from Boyé \emph{et al.} (\protect\hyperlink{ref-Boye_2019a}{2019}) only
 included polychaetes) rather than for ecological reasons, although the
 fact that this taxonomic group is numerically dominant and highly
 diverse in terms of lifestyles and functional roles
-(\protect\hyperlink{ref-Giangrande_1997}{Giangrande 1997} ;
-\protect\hyperlink{ref-Jumars_2015}{Jumars \emph{et al.} 2015}) was the
-reason that originally motivated trait-data collection.
+(\protect\hyperlink{ref-Jumars_2015}{Jumars \emph{et al.} 2015} ;
+\protect\hyperlink{ref-Giangrande_1997}{Giangrande 1997}) was the reason
+that originally motivated trait-data collection.
 
 jSDMs have already been used to model the distribution of a wide variety
 of species ranging from micro-organisms
@@ -993,18 +989,17 @@ land-sea interface (\protect\hyperlink{ref-Boye_2019a}{Boyé \emph{et
 al.} 2019}), our case study reflects typical aspects of applied
 ecological research. These include issues related to data limitation and
 availability but also typical features of ecological communities
-(e.g.~prevalence of rare and transient species;
-(\protect\hyperlink{ref-Magurran_2003}{Magurran \& Henderson 2003} ;
-\protect\hyperlink{ref-SnellTaylor_2018}{Snell Taylor \emph{et al.}
-2018})). Our results provide some insights on trait-environment
-relationships but these contributions of functional ecology in jSDMs are
-likely limited by trait data quality and availability
-(\protect\hyperlink{ref-Tyler_2012}{Tyler \emph{et al.} 2012} ;
-\protect\hyperlink{ref-deJuan_2022}{Juan \emph{et al.} 2022}). For
-instance, we found an interaction between trophic modalities
-(i.e.~microphagous versus macrophagous diet) and fetch (Fig. S15),
-indicating that organisms that filter on small particles are less likely
-to occur in wave-exposed sites where high levels of sediment
+(e.g.~prevalence of rare and transient species; Magurran \& Henderson
+(\protect\hyperlink{ref-Magurran_2003}{2003}) ; Snell Taylor \emph{et
+al.} (\protect\hyperlink{ref-SnellTaylor_2018}{2018})). Our results
+provide some insights on trait-environment relationships but these
+contributions of functional ecology in jSDMs are likely limited by trait
+data quality and availability (\protect\hyperlink{ref-Tyler_2012}{Tyler
+\emph{et al.} 2012} ; \protect\hyperlink{ref-deJuan_2022}{Juan \emph{et
+al.} 2022}). For instance, we found an interaction between trophic
+modalities (i.e.~microphagous versus macrophagous diet) and fetch (Fig.
+S15), indicating that organisms that filter on small particles are less
+likely to occur in wave-exposed sites where high levels of sediment
 resuspension can block their filtering systems
 (\protect\hyperlink{ref-Manning_2014}{Manning \emph{et al.} 2014}).
 Conversely macrophagous organisms are less impacted by fetch. Yet, most
@@ -1027,7 +1022,7 @@ frequent disturbances or environmental variability
 ecological studies are likely to face similar trade-offs where the
 potential benefit of including traits within jSDMs is balanced out by
 the effort needed to collect relevant trait information when missing. In
-our case, while inclu=sding traits does not improve model predictive
+our case, while including traits does not improve model predictive
 power, it enhances our understanding of species responses along
 environmental gradients. Hence, if the goal is not prediction but
 inference (\protect\hyperlink{ref-Tredennick_2021}{Tredennick \emph{et
@@ -1053,43 +1048,40 @@ Overall, we provide a comprehensive framework for integrative assessment
 and comparison of alternative jSDM performance.
 
 Overall, our results provide new insights into the most appropriate
-strategies for jSDM fitting, according to the objective of the modelling
-exercise (\protect\hyperlink{ref-Troudet_2017}{Troudet \emph{et al.}
-2017}) and the data at hand. While the four considered models performed
-equally well in terms of explanatory power, adding extra information to
-traditional jSDM (i.e.~that only consider abiotic predictors) can still
-prove useful in some cases. For instance, adding monitoring data for
-other non-target species can substantially increase model predictive
-power by modifying inferred species-environment relationships and
-residual correlation matrices. Similarly, adding traits or phylogeny can
-lead to better model interpretability. To confirm the generality of our
-findings, future studies should focus on ecosystems that display
-different characteristics such as stronger environmental filtering or
-competitive processes; or by resorting to simulated case studies
+strategies for jSDM fitting, according to modelling objectives
+(\protect\hyperlink{ref-Troudet_2017}{Troudet \emph{et al.} 2017}) and
+available data. While the four models considered had similar explanatory
+power, adding extra information to traditional jSDMs that only consider
+abiotic predictors can prove useful in cases. For instance, adding
+monitoring data for other non-target species can substantially increase
+model predictive power by modifying inferred species-environment
+relationships and residual correlation matrices. Similarly, adding
+traits or phylogeny can improve model interpretability. Future studies
+will be key to consolidate our findings on simulated case studies
 (\protect\hyperlink{ref-Zurell_2010}{Zurell \emph{et al.} 2010} ;
-\protect\hyperlink{ref-DiRenzo_2022}{DiRenzo \emph{et al.} 2022}).
+\protect\hyperlink{ref-DiRenzo_2022}{DiRenzo \emph{et al.} 2022}), or
+across contrasted ecosystems, for instance dominated either by
+environmental filtering, or by competitive processes.
 
 \hypertarget{author-contributions}{%
 \subsection{Author Contributions}\label{author-contributions}}
 
-MPM conveived the original idea with imputs from CV, AB, MC. CV analysed
-the data and wrote the first draft of the manuscript. All authors
-provided critical comments on earlier version of the manuscript and ave
-final approval for publication.
+MPM conceived the project with inputs from CV, AB, MC. CV analysed data
+and led manuscript write-up. All authors had significant inputs to the
+manuscript and approved this final version.
 
-\hypertarget{acknowledgment}{%
-\subsection{Acknowledgment}\label{acknowledgment}}
+\hypertarget{acknowledgments}{%
+\subsection{Acknowledgments}\label{acknowledgments}}
 
-The authors are very grateful to Marion Maguer and Vincet Le Garrec who
-conducted the fieldwork and laboratory analysis that made this study
-possible, as well as to all students, technicians, engineers and
-Ph.D.~that have been involved in this long-term effort. This study was
-supported by the REBENT programme coordinated by Sandrine Derrien (MNHN)
-and its funding partners (Agence de l'eau Loire-Bretagne, Région
-Bretagne, DREAL Bretagne). The authors would also like to acknowledge
-the Pôle de Calcul et de Données Marines (PCDM) for providing DATARMOR
-storage and computational resources. \url{https://pcdm.ifremer.fr}. MPM
-is the recipient of an ANR early career grant ANR-21-CE02-0006.
+We are grateful to Marion Maguer and Vincent Le Garrec who conducted
+fieldwork and laboratory analyses, as well as to supporting students and
+staff involved in the REBENT monitoring programme coordinated by
+Sandrine Derrien (MNHN) and its funding partners (Agence de l'eau
+Loire-Bretagne, Région Bretagne, DREAL Bretagne). The authors would also
+like to acknowledge the Pôle de Calcul et de Données Marines (PCDM) for
+providing DATARMOR storage and computational resources.
+\url{https://pcdm.ifremer.fr}. MPM is the recipient of an ANR early
+career grant ANR-21-CE02-0006.
 
 \hypertarget{references}{%
 \section*{References}\label{references}}
