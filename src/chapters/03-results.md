@@ -1,12 +1,12 @@
 # Results
 
-Both MCMC convergence and effective sample size of the different jSDMs were satisfactory (see Appendix B).
+Both MCMC convergence and effective sample size of the different jSDMs were satisfactory (see Appendix D).
 
 ## Model Fit & Predictive power
 
 ### Species level
 
-Presence/absence models presented an excellent explanatory power as reflected by mean AUC estimates greater than 0.9 (Fig. S4). Conversely, their predictive power was rather low given a mean AUC estimate of ~0.65 (Fig. S4). For abundance models, mean RMSE computed on the training set ranged from 8.94 to 9.35 (Fig. S4). Their predictive power was heterogeneous with the whole community (WhC) model presenting the highest performance ($\text{mean RMSE} = 5.83$) followed by the benchmark model (Bench) ($\text{mean RMSE} = 53.7$), the phyloheny (Ph) model ($\text{mean RMSE}=63.7$) and the traits & phylogeny model ($\text{mean RMSE} = 95.3$) (Fig. S4).
+Presence/absence models presented an excellent explanatory power as reflected by mean AUC on the training data over 0.9 (Fig. S4). Conversely, their predictive power was rather low given a mean AUC estimated on the test data of ~0.65 (Fig. S4). For abundance models, mean RMSE computed on the training set ranged from 8.94 to 9.35 (Fig. S4). Their predictive power was heterogeneous with the whole community (WhC) model presenting the highest performance in order of magnitude ($\text{mean} RMSE = 5.83$) than the benchmark model (Bench) ($\text{mean RMSE} = 53.7$), the phyloheny (Ph) model ($\text{mean RMSE}=63.7$) and the traits & phylogeny model ($\text{mean RMSE} = 95.3$) (Fig. S4).
 
 Relative to the benchmark model (+@fig:fig2), model explanatory power only sightly decreased for both TrPh (mean increase in RMSE +0.8% and decrease in AUC of -0.6%) and Ph models (mean increase in RMSE of +0.5% and decrease in AUC -0.6%). Explanatory power only slightly increased for the WhC models (mean decrease in RMSE of -3.6% and increase in AUC +0.3%). In terms of predictive power, performance mostly increased for the WhC abundance model with a mean decrease in RMSE of 26% relative to the benchmark model. This improvement concerned 62 species (mean decrease in RMSE of -49.3%; 10h and 90th deciles [-94.8% ; -9.7%] for these species) whereas 12 species presented a performance decrease (+36% RMSE; 10th and 90th deciles [10% ; 70.1%]).  Only 32 and 36 species were improved for TrPH and Ph models, with mean decrease/increase in RMSE of 26.5% and 24.9% across all species, respectively.
 
