@@ -1,0 +1,49 @@
+\clearpage
+\thispagestyle{empty}
+\newgeometry{margin=1.25cm}
+\begin{landscape}
+
+% Otherwise, the font cite of the command citation is normal
+\renewcommand*{\citesetup}{\scriptsize}
+
+\begin{table}[htbp]
+\caption[Multi-assessment framework providing a list of metrics to assess, interpret or compare jSDMs across different ecological facets at the species, community or overall level.]{\footnotesize Multi-assessment framework providing a list of useful metrics to assess, interpret or compare jSDMs across different ecological facets (rows) at the species, community or overall level. Italicized metrics are used in this study.}
+    \begin{threeparttable}
+    \begin{scriptsize}
+    \begin{tabular}{ccccccc}
+        \multicolumn{2}{|c|}{Model outputs} & \multicolumn{1}{c|}{\shortstack[c]{Example of derived-metrics\\for model interpretation}} & \multicolumn{2}{c|}{\shortstack[c]{Example of derived-metrics\\for model evaluation}} & \multicolumn{2}{c|}{\shortstack[c]{Example of performance measures\\to assess the explanatory/predictive\\power of models\footnotemark}} \\
+        \cline{4-7}
+        \multicolumn{2}{|c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{Presence/Absence} & \multicolumn{1}{c|}{Abundance} & \multicolumn{1}{c|}{Presence/Absence} & \multicolumn{1}{c|}{Abundance} \\
+        \hline\hline
+        \multicolumn{1}{|c|}{Species level} & \multicolumn{1}{c|}{\shortstack[c]{Abundance,\\occurrence probability,\\environmental coefficients}} & \multicolumn{1}{c|}{\shortstack[c]{Variable importance (e.g. LIME, SHAP\footnotemark),\\Heatmap of environmental coefficients,\\ \emph{Response curves}\footnotemark, \emph{Variance partitioning}}} & \multicolumn{1}{c|}{\shortstack[c]{Number of\\Presence/Absence,\\Proportion of\\occupied sites}} & \multicolumn{1}{c|}{\shortstack[c]{Total abundance,\\site-specific\\abundance}} & \multicolumn{1}{c|}{\shortstack[c]{\emph{AUC},\\Kappa,\\F1-Score}} & \multicolumn{1}{c|}{\shortstack[c]{\emph{RMSE}, MAE, R2,\\Correlation between\\predicted and\\observed values}} \\
+        \hline
+        \multicolumn{1}{|c|}{$\alpha$-diversity} & \multicolumn{1}{c|}{\multirow{2}{*}{\shortstack[c]{Site-specific community\\composition}}} & \multicolumn{3}{c|}{\shortstack[c]{Diversity index (e.g. Shannon entropy,\\Simpson-Gini index), \emph{Total abundance},\\\emph{Total richness},\\Proportion of rare/abundant species}} & \multicolumn{2}{c|}{\multirow{2}{*}{\shortstack[c]{\emph{Differences between predicted and observed values},\\RMSE, MAE, R2,\\Correlations (e.g. Kendall, Pearson)\\between observed and predicted\\alpha or beta diversity indices}}} \\
+        \cline{1-1}\cline{3-5}
+        \multicolumn{1}{|c|}{$\beta$-diversity} & \multicolumn{1}{c|}{} & \multicolumn{3}{c|}{\shortstack[c]{\emph{Pairwise dissimilarity} (e.g. Jaccard/Bray-Curtis),\footnotemark\textsuperscript{,}\footnotemark\\Total Beta diversity, Turnover,Nestedness,\\Local Contribution to Beta Diversity (LCBD),\\Species Contribution to Beta Diversity (SCBD)}} & & \multicolumn{1}{c|}{} \\
+        \hline
+        \multicolumn{1}{|c|}{\multirow{3}{*}{\shortstack[c]{Overall\\assessment\\(all sites)}}} & \multicolumn{1}{c|}{\shortstack[c]{Regional community\\composition}} & \multicolumn{3}{c|}{\shortstack[c]{Diversity index (e.g. Shannon entropy,\\Simpson-Gini index), Total abundance,\\Total richness,\\Proportion of rare/abundant species}} & \multicolumn{1}{c|}{\shortstack[c]{Average over all species:\\\emph{AUC}, Kappa, F1-Score}} & \multicolumn{1}{|c|}{\shortstack[c]{Average over all species:\\\emph{RMSE}, MAE, R2,\\Correlation \emph{between predicted}\\\emph{and observed values}}} \\
+        \cline{2-7}
+        \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{\shortstack[c]{Residual correlation\\matrix}} & \multicolumn{1}{c|}{\shortstack[c]{Co-occurrence network\\analysis (e.g centrality,\\number of degrees)}} & \multicolumn{4}{c|}{\shortstack[c]{Comparison with observed or reconstructed networks\\(expert-based or estimated e.g. based on trophic analyses) ,\\using e.g. correlations, \emph{residual correlation index ($\delta$)}\footnotemark}} \\
+        \cline{2-7}
+        \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{\shortstack[c]{Trait-based\\regression coefficients}} & \multicolumn{1}{c|}{\shortstack[c]{\emph{Traits-environment}\\\emph{response curves}, Heatmap\\of traits-environment coefficients}} & \multicolumn{4}{c|}{\shortstack[c]{Qualitatively, based on\\literature and/or\\expert knowledge\footnotemark}} \\
+        \hline
+    \end{tabular}
+    \par\noindent\rule{\textwidth}{0.5pt}
+    \vspace{\baselineskip}
+    \end{scriptsize}
+    \begin{tablenotes}
+        \scriptsize
+        \item[1] All performance measures can theoretically be compared between models. For instance, we here measured differences between models using a measure of relative change in RMSE or AUC relative to the Bench model using Eq. 1. Other measures could be correlations between model predictions.
+        \item[2] See \textcite{Ryo_2021}
+        \item[3] To ease model comparison and interpretation, we propose to summarize the information contained in species response curves using the framework initially proposed by \textcite{Rigal_2020} for classifying species temporal trajectories based on their trend, acceleration, direction and velocity. Applied to regression coefficients, it allows to classify the response of species to each environmental variable into several shapes that are easy to interpret, to link with ecological theory, and to compare across models.
+        \item[4] For jSDM assessment, pairwise dissimilarities can be computed on the observed site-by-species matrix and on the predicted one. Comparing these values (e.g. through correlation analysis or simply through differences) will inform on how well the model reproduces/predict beta diversity patterns. Alternatively, pairwise dissimilarities can be computed between the observed taxa composition of a sample and its predicted one. These dissimilarities then become a metric to assess model performance based on species-composition predictions.
+        \item[5] For jSDMs comparisons, pairwise dissimilarities computed between the observed taxa composition of a sample and its predicted one can be compared across models (e.g. through correlations) to assess to what extent differences between predicted and observed taxa composition are congruent across different models. Alternatively, comparing correlations between pairwise dissimilarities computed on the observed site-by-species matrix and on the predicted one will inform on which model best predict beta diversity patterns.
+        \item[6] Species interaction networks can be reconstructed under certain conditions using the residual correlation matrices estimated by jSDM (see \textcite{Momal_2020}). The comparison between these reconstructed interaction networks and already known interaction networks (based on trophic data, experimental data, expert knowledge or qualitative information on species interactions) can serve as a means of model validation.
+        \item[7] Comparing modelled species trait-environment responses (e.g., signs, shape of response curves) with expected responses (e.g. from theory, experiments or expert knowledge) can also serve to validate qualitatively the models.
+    \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+\end{landscape}
+\label{tbl1}
+\restoregeometry
+

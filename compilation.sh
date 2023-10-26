@@ -65,7 +65,7 @@ supplementary/Suppinfo.md -o \
 cp ../rendered/preprint.docx ../rendered/Standalone.docx
 
 ## Cleanup
-rm main_docx.md
+rm chapters/main_docx.md
 
 
 # Conversion TeX
