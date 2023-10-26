@@ -1,58 +1,113 @@
-#!/bin/bash
-# echo "Test"
-
-# Main
-
 cd src
 
-pandoc-citeproc --bib2json bibliography.bib > references.json
-# python3 .assets/scripts/bibliography.py
-python3 references.py
+# Conversion Word
+echo "# Abstract" > abstract_tmp.md
+echo "" >> abstract_tmp.md
+cat chapters/00-abstract.md >> abstract_tmp.md
 
-# Convert the abstract for the pdf
+pandoc -f markdown -t markdown \
+abstract_tmp.md \
+chapters/01-introduction.md \
+chapters/02-methods_a.md \
+-o main_tmp.md \
+--verbose \
+--template=template/table_template.tex
+
+cat main_tmp.md \
+chapters/03-results.md \
+chapters/04-discussion.md \
+chapters/05-formal.md \
+> chapters/main_docx.md
+
+rm main_tmp.md abstract_tmp.md
+
+pandoc -f markdown -t docx \
+chapters/main_docx.md -o \
+../rendered/preprint.docx \
+--verbose \
+--metadata-file=../metadata.json \
+--reference-doc=template/template.docx \
+--filter pandoc-crossref \
+--metadata crossrefYaml="template/pandoc_crossref_conf.yml" \
+--metadata link-bibliography="true" \
+--metadata link-citations="true" \
+--citeproc --biblatex \
+--bibliography=bibliography.bib \
+--csl=template/ecology-letters.cls
+
+pandoc -f markdown -t docx \
+chapters/main_docx.md -o \
+../rendered/preprint.docx \
+--verbose \
+--metadata-file=../metadata.json \
+--reference-doc=template/template.docx \
+--filter pandoc-crossref \
+--metadata crossrefYaml="template/pandoc_crossref_conf.yml" \
+--metadata link-bibliography="true" \
+--metadata link-citations="true" \
+--citeproc --biblatex \
+--bibliography=bibliography.bib \
+--csl=template/ecology-letters.cls
+
+pandoc -f markdown -t docx \
+supplementary/Suppinfo.md -o \
+../rendered/Suppinfo.docx \
+--verbose \
+--reference-doc=template/template.docx \
+--filter pandoc-crossref \
+--metadata crossrefYaml="template/pandoc_crossref_conf.yml" \
+--metadata link-bibliography="true" \
+--metadata link-citations="true" \
+--citeproc --biblatex \
+--bibliography=bibliography.bib \
+--csl=template/ecology-letters.cls
+
+cp ../rendered/preprint.docx ../rendered/Standalone.docx
+
+## Cleanup
+rm main_docx.md
+
+
+# Conversion TeX
+
 pandoc -f markdown -t latex chapters/00-abstract.md -o abstract.tex
 
-# Convert the main text for the pdf
-pandoc -f markdown -t markdown chapters/01-introduction.md chapters/02-methods.md \
-  chapters/03-results.md chapters/04-discussion.md \
-  chapters/05-formal.md -o main.md
+## Convert the main text up to the table
+pandoc -f markdown -t markdown \
+chapters/01-introduction.md \
+chapters/02-methods_a.md \
+-o main_tmp.md \
+--verbose \
+--template=template/table_template.md \
+--metadata latex
 
-echo "Microsof Word Document"
+## Add the rest of the text and concatenates it
+cat main_tmp.md \
+chapters/03-results.md \
+chapters/04-discussion.md \
+chapters/05-formal.md \
+> main_tex.md
 
-pandoc -f markdown -t docx chapters/00-abstract.md main.md \
-  -o preprint.docx --metadata-file=../metadata.json \
-  --filter pandoc-fignos --filter pandoc-tablenos \
-  --citeproc --bibliography=references.json \
-  --csl=template/ecology-letters.cls
+## Create the pdf
 
-echo "PDF Document" 
-# There is a small issue with pandoc-tablenos (multiply defined labels) but I can't figure what is happening. It seems fine on the pdf output thus.
+cp template/template.tex .
+cp template/lapreprint.cls .
 
-cp template/template.tex template.tex
-cp template/lapreprint.cls lapreprint.cls
-
-pandoc -f markdown -t latex main.md -o preprint.tex --template=template.tex \
-  --filter pandoc-xnos --metadata-file=../metadata.json \
-  --citeproc --bibliography=references.json \
-  --csl=template/ecology-letters.cls
+latexmk -c
+pandoc -f markdown -t latex main_tex.md -o preprint.tex \
+--verbose \
+--template=template.tex \
+--metadata-file=../metadata.json \
+--filter pandoc-crossref \
+--metadata link-citations="true" \
+--metadata crossrefYaml=pandoc_crossref_conf.yml \
+--citeproc --biblatex --bibliography=bibliography.bib
 
 latexmk preprint.tex  -f -lualatex --file-line-error --interaction=nonstopmode && latexmk -c
 
-echo "Annexes"
+mv preprint.pdf ../rendered/
+mv preprint.tex ../rendered/
 
-pandoc -f markdown -t docx supplementary/Suppinfo.md -o Suppinfo.docx --filter pandoc-xnos \
-  --metadata fignos-caption-name="Figure S" \
-  --metadata tablenos-caption-name="Table S" \
-  --citeproc --bibliography=references.json --csl=template/ecology-letters.cls
-
-# Clean-up
-rm preprint.suppinfo
-rm preprint.fff
-
-mv preprint* ../rendered/
-
-mv Suppinfo.docx ../rendered/
-
-rm abstract.tex main.md template.tex references.json lapreprint.cls 
-
-cd ..
+## Cleaning -up
+rm main_tmp.md main_tex.md template.tex lapreprint.cls \
+preprint.bbl preprint.suppinfo preprint.run.xml

@@ -33,10 +33,12 @@
 \usepackage{colortbl}   % For Knitr table colouring
 \usepackage{tabularx}   % For making Knitr tables compatible
 \usepackage{longtable}  % For multi-page tables
-\usepackage{subcaption}
 \usepackage{multirow}
 \usepackage{snotez}     % For sidenote environments. enotez for endnotes
 \usepackage{csquotes}   % For language-based quote rules (helps BiBLaTeX)
+
+% Custom packages
+\usepackage{threeparttable}
 
 \providecommand{\tightlist}{% Command for list
 \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -88,43 +90,15 @@ $endfor$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% BIBLIOGRAPHY
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \usepackage[			% use biblatex for bibliography
-% 	backend=biber,      % use biber or bibtex backend
-%     style=authoryear,   % choose style
-% 	natbib=true,		% allow natbib commands
-% 	hyperref=true,	    % activate hyperref support
-% 	alldates=year,      % only show year (not month)
-% ]{biblatex}
+\usepackage[			% use biblatex for bibliography
+	backend=biber,      % use biber or bibtex backend
+  style=authoryear,   % choose style
+	hyperref=true,	    % activate hyperref support
+	alldates=year,      % only show year (not month)
+]{biblatex}
 
 % Update to your bibliography file
-% \addbibresource{src/bibliography.bib}
-
-% For Pandoc citeproc module support
-$if(csl-refs)$
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
-  \fi
-  % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
-$endif$
+\addbibresource{bibliography.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% ARTICLE SETUP
@@ -189,6 +163,7 @@ $body$
 % DON'T EDIT. If "endfloat" option is enabled all floats appear before appendices
 \if@endfloat\clearpage\processdelayedfloats\clearpage\fi 
 
+\printbibliography[heading=bibintoc, title={References}]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUPPLEMENTARY MATERIAL / APPENDICES

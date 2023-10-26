@@ -1,0 +1,6 @@
+figureTitle: "Figure S"
+tableTitle: "Table S"
+figPrefix: "Fig S."
+eqnPrefix: "Eq S."
+tblPrefix: "Table S."
+linkReferences: true
